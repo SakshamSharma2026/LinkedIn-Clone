@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_nav_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/nav_network"
+        android:icon="@drawable/ic_nav_network"
+        android:title="My Network" />
+
+    <item
+        android:id="@+id/nav_uplod"
+        android:icon="@drawable/ic_plus"
+        android:title="Post" />
+
+    <item
+        android:id="@+id/nav_notification"
+        android:icon="@drawable/ic_nav_notifications"
+        android:title="Notifications" />
+
+    <item
+        android:id="@+id/nav_jobs"
+        android:icon="@drawable/ic_nav_work"
+        android:title="Jobs" />
+
+</menu>

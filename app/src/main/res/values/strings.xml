@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">LinkedIn</string>
+    <string name="default_web_client_idd">576291268650-7vsvbtg4hnddomqr7b3g8nh4idf0gk62.apps.googleusercontent.com</string>
+
+    <!--    App Description Heading-->
+    <string name="search_heading">Find and land your next job</string>
+    <string name="build_heading">Build your network on the go</string>
+    <string name="stay_heading">Stay ahead with curated content for your career</string>
+
+    <!--    Login Activity-->
+    <string name="join_now">Join now</string>
+    <string name="join_with_google">Join with Google</string>
+    <string name="sign_in">Sign in</string>
+
+
+    <string name="fg_password">Forgot password?</string>
+    <string name="btn_continue">Continue</string>
+    <string name="sign_with_google">Sign in with Google</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>
