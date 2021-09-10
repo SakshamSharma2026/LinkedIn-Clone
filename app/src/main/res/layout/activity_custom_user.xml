@@ -258,7 +258,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginTop="-70dp"
-                        android:src="@drawable/saksham"
+                        android:background="@color/black"
                         app:civ_border_color="@color/white"
                         app:civ_border_width="@dimen/_1sdp" />
 

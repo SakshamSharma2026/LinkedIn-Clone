@@ -16,7 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.codewithshadow.linkedin_clone.MessageUsersActivity;
+import com.codewithshadow.linkedin_clone.ui.messgae_user.MessageUsersActivity;
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.models.user.UserModel;
 import com.codewithshadow.linkedin_clone.ui.fragments.HomeFragment;

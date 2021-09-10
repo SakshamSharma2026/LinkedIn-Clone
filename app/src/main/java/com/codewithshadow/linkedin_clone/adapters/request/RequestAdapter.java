@@ -1,5 +1,9 @@
 package com.codewithshadow.linkedin_clone.adapters.request;
 
+import static com.codewithshadow.linkedin_clone.constants.Constants.CONNECTIONS;
+import static com.codewithshadow.linkedin_clone.constants.Constants.REQUEST;
+import static com.codewithshadow.linkedin_clone.constants.Constants.USER_CONSTANT;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +29,6 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHo
     private Context aCtx;
     private List<RequestModel> list;
 
-
     public RequestAdapter(Context aCtx, List<RequestModel> list) {
         this.aCtx = aCtx;
         this.list = list;
@@ -45,11 +48,11 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHo
         holder.name.setText(list.get(position).getUsername());
         Glide.with(aCtx).load(list.get(position).getImageUrl()).into(holder.userImage);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid());
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child(USER_CONSTANT).child(user.getUid());
 
         holder.connectOk.setOnClickListener(v -> {
-            ref.child("Request").child(list.get(position).getKey()).removeValue();
-            ref.child("Connections").child(list.get(position).getKey()).setValue(true);
+            ref.child(REQUEST).child(list.get(position).getKey()).removeValue();
+            ref.child(CONNECTIONS).child(list.get(position).getKey()).setValue(true);
         });
 
         holder.connectCancel.setOnClickListener(v -> {

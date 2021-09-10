@@ -1,5 +1,9 @@
 package com.codewithshadow.linkedin_clone.ui.fragments;
 
+import static com.codewithshadow.linkedin_clone.constants.Constants.INFO;
+import static com.codewithshadow.linkedin_clone.constants.Constants.REQUEST;
+import static com.codewithshadow.linkedin_clone.constants.Constants.USER_CONSTANT;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codewithshadow.linkedin_clone.R;
-import com.codewithshadow.linkedin_clone.adapters.NetworkAdapter;
+import com.codewithshadow.linkedin_clone.adapters.network_list.NetworkAdapter;
 import com.codewithshadow.linkedin_clone.adapters.request.RequestAdapter;
 import com.codewithshadow.linkedin_clone.models.request.RequestModel;
 import com.codewithshadow.linkedin_clone.models.user.UserModel;
@@ -35,7 +39,6 @@ import java.util.List;
 public class NetworkFragment extends Fragment {
     List<RequestModel> list;
     List<UserModel> connectionList;
-
     NetworkAdapter adapter;
     RequestAdapter requestAdapter;
     RecyclerView recyclerView, requestRecyclerView;
@@ -59,7 +62,6 @@ public class NetworkFragment extends Fragment {
         list = new ArrayList<>();
         requestList = new ArrayList<>();
 
-
         return view;
     }
 
@@ -81,7 +83,7 @@ public class NetworkFragment extends Fragment {
     //--------------------------------Get All Users Id--------------------------------//
     private void GetAllUsersId() {
         requestList = new ArrayList<>();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid()).child("Request");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child(USER_CONSTANT).child(user.getUid()).child(REQUEST);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -101,13 +103,13 @@ public class NetworkFragment extends Fragment {
 
     //    ----------------------------------Read Request--------------------------------//
     private void readRequest() {
-        ref.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+        ref.child(USER_CONSTANT).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 list.clear();
                 for (String id : requestList) {
                     RequestModel model = null;
-                    model = snapshot.child(id).child("Info").getValue(RequestModel.class);
+                    model = snapshot.child(id).child(INFO).getValue(RequestModel.class);
                     list.add(model);
                 }
 
@@ -128,12 +130,12 @@ public class NetworkFragment extends Fragment {
     //    ----------------------------------Read Users--------------------------------//
     private void readUsers() {
         connectionList = new ArrayList<>();
-        ref.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+        ref.child(USER_CONSTANT).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 connectionList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    UserModel model = dataSnapshot.child("Info").getValue(UserModel.class);
+                    UserModel model = dataSnapshot.child(INFO).getValue(UserModel.class);
                     if (!model.getKey().equals(user.getUid())) {
                         connectionList.add(model);
                     }

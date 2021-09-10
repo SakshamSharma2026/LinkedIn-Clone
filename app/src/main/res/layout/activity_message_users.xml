@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MessageUsersActivity">
+    tools:context=".ui.messgae_user.MessageUsersActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -26,12 +26,11 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:id="@+id/close_img"
+                    android:id="@+id/btn_back"
                     android:layout_width="@dimen/_24sdp"
                     android:layout_height="@dimen/_24sdp"
                     android:layout_alignParentStart="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
+                    android:layout_centerInParent="true"
                     android:src="@drawable/ic_baseline_arrow_back_24" />
 
                 <TextView
@@ -39,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_20sdp"
-                    android:layout_toEndOf="@id/close_img"
+                    android:layout_toEndOf="@id/btn_back"
                     android:fontFamily="@font/roboto_medium"
                     android:text="Messaging"
                     android:textColor="@color/black"

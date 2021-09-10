@@ -1,4 +1,4 @@
-package com.codewithshadow.linkedin_clone.adapters;
+package com.codewithshadow.linkedin_clone.adapters.network_list;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,11 +44,7 @@ public class NetworkAdapter extends RecyclerView.Adapter<NetworkAdapter.MyViewHo
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(aCtx, CustomUserActivity.class);
-            intent.putExtra("user_id", list.get(position).getKey());
-            intent.putExtra("user_name", list.get(position).getUsername());
-            intent.putExtra("user_imgUrl", list.get(position).getImageUrl());
-            intent.putExtra("user_email", list.get(position).getEmailAddress());
-            intent.putExtra("user_location", list.get(position).getLocation());
+            intent.putExtra("user_data", list.get(position));
             aCtx.startActivity(intent);
         });
 
@@ -64,8 +59,6 @@ public class NetworkAdapter extends RecyclerView.Adapter<NetworkAdapter.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name;
         ImageView userImage;
-        LinearLayout btn_like;
-
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

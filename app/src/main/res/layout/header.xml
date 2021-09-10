@@ -11,6 +11,7 @@
         android:layout_height="@dimen/_25sdp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
+        android:background="?android:selectableItemBackgroundBorderless"
         android:src="@drawable/saksham" />
 
 
@@ -83,6 +84,7 @@
         android:layout_height="@dimen/_20sdp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
+        android:background="?android:selectableItemBackgroundBorderless"
         android:src="@drawable/ic_nav_messaging"
         app:tint="#686868" />
 

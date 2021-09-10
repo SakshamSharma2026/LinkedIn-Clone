@@ -19,12 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LinkedIn_Clone"
         android:usesCleartextTraffic="true">
-        <uses-library
-            android:name="org.apache.http.legacy"
-            android:required="false" />
 
         <activity android:name=".ui.custom_user.CustomUserActivity" />
-        <activity android:name=".MessageUsersActivity" />
+        <activity android:name=".ui.messgae_user.MessageUsersActivity" />
         <activity android:name=".ui.location.LocationActivity" />
         <activity android:name=".ui.story.AddStoryActivity" />
         <activity android:name=".ui.story.StoryActivity" />
@@ -43,7 +40,6 @@
         <activity android:name=".ui.splash.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -1,5 +1,8 @@
 package com.codewithshadow.linkedin_clone.ui.fragments;
 
+import static com.codewithshadow.linkedin_clone.constants.Constants.INFO;
+import static com.codewithshadow.linkedin_clone.constants.Constants.USER_CONSTANT;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -99,7 +102,7 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    PostModel model = dataSnapshot.child("Info").getValue(PostModel.class);
+                    PostModel model = dataSnapshot.child(INFO).getValue(PostModel.class);
                     list.add(model);
                 }
                 Collections.reverse(list);
@@ -117,14 +120,14 @@ public class HomeFragment extends Fragment {
     //--------------------------------Get All Users Id--------------------------------//
     private void GetAllUsersId() {
         followingList = new ArrayList<>();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child(USER_CONSTANT);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 followingList.clear();
                 UserModel model = null;
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    model = dataSnapshot.child("Info").getValue(UserModel.class);
+                    model = dataSnapshot.child(INFO).getValue(UserModel.class);
                     assert model != null;
                     if (!model.getKey().equals(user.getUid())) {
                         followingList.add(dataSnapshot.getKey());

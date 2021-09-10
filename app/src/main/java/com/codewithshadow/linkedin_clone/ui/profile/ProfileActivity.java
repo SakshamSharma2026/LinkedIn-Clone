@@ -1,5 +1,8 @@
 package com.codewithshadow.linkedin_clone.ui.profile;
 
+import static com.codewithshadow.linkedin_clone.constants.Constants.INFO;
+import static com.codewithshadow.linkedin_clone.constants.Constants.USER_CONSTANT;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -46,7 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         user = FirebaseAuth.getInstance().getCurrentUser();
-        userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid());
+        userRef = FirebaseDatabase.getInstance().getReference().child(USER_CONSTANT).child(user.getUid());
         img_edit_about = findViewById(R.id.img_edit);
         saveAboutBtn = findViewById(R.id.save_btn);
         editTextAbout = findViewById(R.id.about_edittext);
@@ -67,7 +70,7 @@ public class ProfileActivity extends AppCompatActivity {
         userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                model = snapshot.child("Info").getValue(UserModel.class);
+                model = snapshot.child(INFO).getValue(UserModel.class);
                 name.setText(model.getUsername());
                 location.setText(model.getLocation());
                 headlineTxt.setText(model.getHeadline());
