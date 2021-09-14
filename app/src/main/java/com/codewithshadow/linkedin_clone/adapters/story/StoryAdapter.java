@@ -14,9 +14,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.codewithshadow.linkedin_clone.PostDataDiffUtil;
 import com.codewithshadow.linkedin_clone.R;
+import com.codewithshadow.linkedin_clone.StoryDataDiffUtil;
+import com.codewithshadow.linkedin_clone.models.post.PostModel;
 import com.codewithshadow.linkedin_clone.models.story.StoryModel;
 import com.codewithshadow.linkedin_clone.ui.story.AddStoryActivity;
 import com.codewithshadow.linkedin_clone.ui.story.StoryActivity;
@@ -179,7 +183,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.MyViewHolder
                 } else {
                     if (count > 0) {
                         textView.setText("Your Story");
-                        holder.story_photo_seen_layout.setBackground(aCtx.getResources().getDrawable(R.drawable.uigitdev_elements_profile_picture_gradient));
+                        holder.story_photo_seen_layout.setBackground(aCtx.getResources().getDrawable(R.drawable.profile_picture_gradient));
                         imageView.setVisibility(View.GONE);
                         holder.white_card.setVisibility(View.GONE);
 
@@ -214,7 +218,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.MyViewHolder
                 }
                 if (i > 0) {
                     holder.story_photo.setVisibility(View.VISIBLE);
-                    holder.story_photo_seen_layout.setBackground(aCtx.getResources().getDrawable(R.drawable.uigitdev_elements_profile_picture_gradient));
+                    holder.story_photo_seen_layout.setBackground(aCtx.getResources().getDrawable(R.drawable.profile_picture_gradient));
 
                 } else {
                     holder.story_photo_seen_layout.setBackgroundColor(Color.GRAY);
@@ -230,6 +234,13 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.MyViewHolder
             }
         });
 
+    }
+
+    public void setData(List<StoryModel> newList) {
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new StoryDataDiffUtil(newList, list));
+        diffResult.dispatchUpdatesTo(this);
+        list.clear();
+        this.list.addAll(newList);
     }
 }
 

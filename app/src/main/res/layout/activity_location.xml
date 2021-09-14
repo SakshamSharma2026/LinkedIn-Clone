@@ -86,7 +86,7 @@
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:backgroundTint="@color/gray"
-            android:text="android developer"
+            tools:text="android developer"
             android:textSize="@dimen/_16ssp" />
     </LinearLayout>
 
@@ -168,7 +168,6 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:padding="@dimen/_15sdp"
-            android:paddingEnd="10dp"
             android:text="Skip"
             android:textColor="@color/gray"
             android:textSize="@dimen/_16ssp"

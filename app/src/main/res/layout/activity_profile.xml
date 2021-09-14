@@ -248,18 +248,18 @@
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/devs" />
+                        android:src="@drawable/ic_card_bg" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/profileImg"
-                        android:layout_width="@dimen/_80sdp"
-                        android:layout_height="@dimen/_80sdp"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
                         android:layout_below="@id/background_img"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginTop="-60dp"
-                        android:src="@drawable/saksham"
+                        android:src="@drawable/user"
                         app:civ_border_color="@color/white"
                         app:civ_border_width="@dimen/_1sdp" />
 
@@ -270,8 +270,8 @@
                         android:layout_below="@id/background_img"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="-28dp"
-                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginStart="-22dp"
+                        android:layout_marginTop="@dimen/_20sdp"
                         android:layout_toEndOf="@+id/profileImg"
                         app:cardCornerRadius="40dp"
                         app:cardElevation="2dp">
@@ -321,8 +321,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_16ssp"
-                        tools:text="Saksham Sharma" />
+                        android:textSize="@dimen/_18ssp"
+                        tools:text="User" />
 
                     <TextView
                         android:id="@+id/headlineTxt"
@@ -330,7 +330,7 @@
                         android:layout_height="wrap_content"
                         android:text="Android Developer || ML || Java"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_14ssp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -338,14 +338,14 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:text="FamPay - Graphic Era Hill University"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_14ssp" />
 
                     <TextView
                         android:id="@+id/txt_location"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/gray"
-                        android:textSize="@dimen/_10ssp"
+                        android:textSize="@dimen/_12ssp"
                         tools:text="Dehradun, Uttarakhand, India" />
 
                     <TextView
@@ -511,7 +511,7 @@
                             android:layout_height="wrap_content"
                             android:text="Your Dashboard"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12ssp" />
+                            android:textSize="@dimen/_14ssp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -520,14 +520,17 @@
                             android:text="Private to you"
 
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_8ssp" />
+                            android:textSize="@dimen/_10ssp" />
                     </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:layout_margin="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
                         android:padding="@dimen/_3sdp"
                         android:text="All-Star"
                         android:textColor="@color/black"
@@ -564,7 +567,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_bold"
-                                    android:text="3,932"
+                                    android:text="0"
                                     android:textColor="@color/main_color"
                                     android:textSize="@dimen/_13ssp" />
 
@@ -595,7 +598,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_bold"
-                                    android:text="43,033"
+                                    android:text="0"
                                     android:textColor="@color/main_color"
                                     android:textSize="@dimen/_13ssp" />
 
@@ -626,7 +629,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_bold"
-                                    android:text="260"
+                                    android:text="0"
                                     android:textColor="@color/main_color"
                                     android:textSize="@dimen/_13ssp" />
 
@@ -869,7 +872,7 @@
                             android:layout_centerVertical="true"
                             android:text="About"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12ssp" />
+                            android:textSize="@dimen/_14ssp" />
 
                         <ImageView
                             android:id="@+id/img_edit"
@@ -889,8 +892,8 @@
                         android:ellipsize="end"
                         android:lines="3"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10ssp"
-                        tools:text="I am a Frontend Android Application Developer. Experienced Android Developer with a demonstrated history of working in the computer software industry. Skilled in Firebase, Java, Android Development, and Project Management. And I am open to internships." />
+                        android:textSize="@dimen/_12ssp"
+                        tools:text="@tools:sample/lorem/random"/>
 
                 </LinearLayout>
 
@@ -917,7 +920,7 @@
                             android:layout_centerVertical="true"
                             android:text="Experience"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12ssp" />
+                            android:textSize="@dimen/_14ssp" />
 
                         <ImageView
                             android:layout_width="@dimen/_20sdp"
@@ -955,21 +958,21 @@
                                 android:fontFamily="@font/roboto_bold"
                                 android:text="Android Engineering Intern"
                                 android:textColor="@color/black"
+                                android:textSize="@dimen/_14ssp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Internship"
+                                android:textColor="@color/black"
                                 android:textSize="@dimen/_12ssp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="FamPay - Internship"
+                                android:text="0"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Jul 2021 - Present 2 mons"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp"
+                                android:textSize="@dimen/_12ssp"
 
                                 />
                         </LinearLayout>
@@ -1009,21 +1012,21 @@
                                 android:fontFamily="@font/roboto_bold"
                                 android:text="Android Developer Intern"
                                 android:textColor="@color/black"
+                                android:textSize="@dimen/_14ssp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Internship"
+                                android:textColor="@color/black"
                                 android:textSize="@dimen/_12ssp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Hello Homeo - Internship"
+                                android:text="0"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="April 2021 - Present 4 mons"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp"
+                                android:textSize="@dimen/_12ssp"
 
                                 />
                         </LinearLayout>
@@ -1052,7 +1055,7 @@
                                 android:layout_centerVertical="true"
                                 android:text="Education"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_12ssp" />
+                                android:textSize="@dimen/_14ssp" />
 
                             <ImageView
                                 android:layout_width="@dimen/_20sdp"
@@ -1087,23 +1090,23 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/_5sdp"
                                     android:fontFamily="@font/roboto_bold"
-                                    android:text="Graphic Era Hill University"
+                                    android:text="University"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_12ssp" />
+                                    android:textSize="@dimen/_14ssp" />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Bachelor of Technology - B.Tech, CS"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_10ssp" />
+                                    android:textSize="@dimen/_12ssp" />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="2018-2022"
+                                    android:text="0"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_10ssp"
+                                    android:textSize="@dimen/_12ssp"
 
                                     />
                             </LinearLayout>
@@ -1138,7 +1141,7 @@
                             android:layout_centerVertical="true"
                             android:text="Accomplishments"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12ssp" />
+                            android:textSize="@dimen/_14ssp" />
 
                         <ImageView
                             android:layout_width="@dimen/_20sdp"
@@ -1179,15 +1182,15 @@
                                 android:fontFamily="@font/roboto_bold"
                                 android:text="Projects"
                                 android:textColor="@color/main_color"
-                                android:textSize="@dimen/_12ssp" />
+                                android:textSize="@dimen/_14ssp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
-                                android:text="QuickChat"
+                                android:text="--"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
+                                android:textSize="@dimen/_12ssp" />
                         </LinearLayout>
                     </RelativeLayout>
 
@@ -1227,15 +1230,15 @@
                                 android:fontFamily="@font/roboto_bold"
                                 android:text="Course"
                                 android:textColor="@color/main_color"
-                                android:textSize="@dimen/_12ssp" />
+                                android:textSize="@dimen/_14ssp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
-                                android:text="Android Development"
+                                android:text="--"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
+                                android:textSize="@dimen/_12ssp" />
                         </LinearLayout>
                     </RelativeLayout>
                 </LinearLayout>
@@ -1263,7 +1266,7 @@
                             android:layout_centerVertical="true"
                             android:text="Contact"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12ssp" />
+                            android:textSize="@dimen/_14ssp" />
 
                         <ImageView
                             android:layout_width="@dimen/_20sdp"
@@ -1302,15 +1305,15 @@
                                 android:fontFamily="@font/roboto_bold"
                                 android:text="Your Profile"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_12ssp" />
+                                android:textSize="@dimen/_14ssp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:lines="2"
-                                android:text="https://www.linkedin.com/in/saksham-sharma-a4b4351a9/"
+                                android:text="https://www.linkedin.com/in/"
                                 android:textColor="@color/main_color"
-                                android:textSize="@dimen/_10ssp" />
+                                android:textSize="@dimen/_12ssp" />
 
                         </LinearLayout>
                     </RelativeLayout>
@@ -1359,14 +1362,14 @@
                                     android:fontFamily="@font/roboto_bold"
                                     android:text="Email"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_12ssp" />
+                                    android:textSize="@dimen/_14ssp" />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="developer.saksham@gmail.com"
+                                    android:text="gmail.com"
                                     android:textColor="@color/main_color"
-                                    android:textSize="@dimen/_10ssp" />
+                                    android:textSize="@dimen/_12ssp" />
 
                             </LinearLayout>
                         </RelativeLayout>

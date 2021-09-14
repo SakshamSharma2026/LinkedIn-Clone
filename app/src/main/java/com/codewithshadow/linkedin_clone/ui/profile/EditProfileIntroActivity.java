@@ -6,9 +6,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.codewithshadow.linkedin_clone.R;
+import com.codewithshadow.linkedin_clone.base.BaseActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,9 +22,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EditProfileIntroActivity extends AppCompatActivity {
+public class EditProfileIntroActivity extends BaseActivity {
     EditText editTextFirstName, editTextLastName, editTextHeadline, editTextPosition, editTextEducation, editTextLocation;
-    String stringUserId, stringUserName, stringUserImgUrl, stringUserEmail, stringUserLocation;
+    String stringUserName, stringUserImgUrl, stringUserLocation;
 
     DatabaseReference ref;
     FirebaseUser user;

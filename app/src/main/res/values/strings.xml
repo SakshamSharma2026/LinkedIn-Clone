@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">LinkedIn</string>
-    <string name="default_web_client_idd">576291268650-7vsvbtg4hnddomqr7b3g8nh4idf0gk62.apps.googleusercontent.com</string>
+<!--    <string name="default_web_client_id">576291268650-7vsvbtg4hnddomqr7b3g8nh4idf0gk62.apps.googleusercontent.com</string>-->
 
     <!--    App Description Heading-->
     <string name="search_heading">Find and land your next job</string>
@@ -15,8 +15,8 @@
 
     <string name="fg_password">Forgot password?</string>
     <string name="btn_continue">Continue</string>
+
     <string name="sign_with_google">Sign in with Google</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 

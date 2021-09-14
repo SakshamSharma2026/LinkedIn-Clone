@@ -1,9 +1,11 @@
 package com.codewithshadow.linkedin_clone.ui.fragments;
 
+import static com.codewithshadow.linkedin_clone.constants.Constants.ALL_POSTS;
 import static com.codewithshadow.linkedin_clone.constants.Constants.INFO;
 import static com.codewithshadow.linkedin_clone.constants.Constants.USER_CONSTANT;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,14 +66,6 @@ public class HomeFragment extends Fragment {
         storyModelList = new ArrayList<>();
         followingList = new ArrayList<>();
 
-//        Handler handler = new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//
-//            }
-//        }, 3000);
-
         return view;
     }
 
@@ -90,14 +84,22 @@ public class HomeFragment extends Fragment {
         recyclerViewStory.setAdapter(storyAdapter);
         recyclerViewStory.setNestedScrollingEnabled(false);
 
-        Read_Posts();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Read_Posts();
+            }
+        }, 2000);
+
         GetAllUsersId();
+
     }
 
     //----------------------------------Read Posts--------------------------------//
     private void Read_Posts() {
         recyclerView.hideShimmer();
-        ref.child("AllPosts").addListenerForSingleValueEvent(new ValueEventListener() {
+        ref.child(ALL_POSTS).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 list.clear();
@@ -120,8 +122,7 @@ public class HomeFragment extends Fragment {
     //--------------------------------Get All Users Id--------------------------------//
     private void GetAllUsersId() {
         followingList = new ArrayList<>();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child(USER_CONSTANT);
-        reference.addValueEventListener(new ValueEventListener() {
+        ref.child(USER_CONSTANT).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 followingList.clear();
@@ -147,8 +148,7 @@ public class HomeFragment extends Fragment {
     //-----------------------------Read Story------------------------//
 
     private void readStory() {
-        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Story");
-        db.addValueEventListener(new ValueEventListener() {
+        ref.child("Story").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 long timeCurrent = System.currentTimeMillis();

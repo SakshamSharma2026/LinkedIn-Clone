@@ -12,15 +12,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.codewithshadow.linkedin_clone.R;
+import com.codewithshadow.linkedin_clone.base.BaseActivity;
+import com.codewithshadow.linkedin_clone.constants.Constants;
 import com.codewithshadow.linkedin_clone.utils.UniversalImageLoderClass;
 import com.codewithshadow.linkedin_clone.models.story.StoryModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,32 +34,27 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import jp.shts.android.storiesprogressview.StoriesProgressView;
 
-public class StoryActivity extends AppCompatActivity implements StoriesProgressView.StoriesListener {
+public class StoryActivity extends BaseActivity implements StoriesProgressView.StoriesListener {
     int counter = 0;
     long presstime = 0L;
     long limit = 500L;
     StoriesProgressView storiesProgressView;
-    ImageView story_photo, btnhighlight;
+    ImageView story_photo;
     TextView story_username, timetxt;
     ProgressBar progressBar;
     FirebaseUser user;
-
-
-    RelativeLayout rrll;
-    ImageView deletebtn;
-    TextView seentext;
-    BottomSheetDialog bottomSheetDialog;
 
     List<String> images;
     List<String> storyids;
 
     String userid;
-    CircleImageView imageView, highlight_image;
+    CircleImageView imageView;
 
 
     private View.OnTouchListener onTouchListener = new View.OnTouchListener() {
@@ -99,35 +94,10 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
         imageView = findViewById(R.id.img);
         story_photo = findViewById(R.id.storyimage);
         story_username = findViewById(R.id.username);
-        rrll = findViewById(R.id.rrll);
         timetxt = findViewById(R.id.time);
-        deletebtn = findViewById(R.id.deletestory);
-        seentext = findViewById(R.id.seentext);
-
-
-        rrll.setVisibility(View.GONE);
 
         userid = getIntent().getStringExtra("userid");
-        if (userid.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-            rrll.setVisibility(View.VISIBLE);
-        }
 
-
-        deletebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Story")
-                        .child(userid).child(storyids.get(counter));
-
-                ref.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(StoryActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                });
-            }
-        });
 
         userInfo(userid);
         getStories(userid);
@@ -156,10 +126,7 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
     @Override
     public void onNext() {
         UniversalImageLoderClass.setImage(images.get(++counter), story_photo, progressBar);
-
         addView(storyids.get(counter));
-        seenNumber(storyids.get(counter));
-//        Glide.with(getApplicationContext()).load(images.get(++counter)).into(story_photo);
 
     }
 
@@ -168,10 +135,6 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
         if ((counter - 1) < 0)
             return;
         UniversalImageLoderClass.setImage(images.get(--counter), story_photo, progressBar);
-        seenNumber(storyids.get(counter));
-
-//        Glide.with(getApplicationContext()).load(images.get(--counter)).into(story_photo);
-
     }
 
     @Override
@@ -223,12 +186,8 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
                 storiesProgressView.setStoriesListener(StoryActivity.this);
                 storiesProgressView.startStories(counter);
 
-
                 UniversalImageLoderClass.setImage(images.get(counter), story_photo, null);
-
                 addView(storyids.get(counter));
-                seenNumber(storyids.get(counter));
-
             }
 
             @Override
@@ -240,16 +199,14 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
     }
 
     private void userInfo(String userid) {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(userid)
-                .child("Info");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child(Constants.USER_CONSTANT).child(userid)
+                .child(Constants.INFO);
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String username = snapshot.child("username").getValue(String.class);
                 String img = snapshot.child("imgurl").getValue(String.class);
                 UniversalImageLoderClass.setImage(img, imageView, null);
-
-//                Glide.with(getApplicationContext()).load(img).into(imageView);
                 story_username.setText(username);
 
 
@@ -270,29 +227,13 @@ public class StoryActivity extends AppCompatActivity implements StoriesProgressV
         }
     }
 
-    private void seenNumber(String storyid) {
-        DatabaseReference rr = FirebaseDatabase.getInstance().getReference().child("Story").child(userid).child(storyid)
-                .child("views");
-        rr.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                seentext.setText("Seen by " + snapshot.getChildrenCount());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
-
 
     public String covertTimeToText(String dataDate, TextView timetxt) {
 
         String convTime = null;
 
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault());
             Date pasTime = dateFormat.parse(dataDate);
 
             Date nowTime = new Date();

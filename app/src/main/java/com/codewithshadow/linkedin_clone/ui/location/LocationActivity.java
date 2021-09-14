@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.codewithshadow.linkedin_clone.R;
+import com.codewithshadow.linkedin_clone.base.BaseActivity;
+import com.codewithshadow.linkedin_clone.constants.Constants;
 import com.codewithshadow.linkedin_clone.ui.home.HomeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LocationActivity extends AppCompatActivity {
+public class LocationActivity extends BaseActivity {
     EditText editRegion, editHeadline;
     FrameLayout continueBtn;
     FirebaseAuth auth;
@@ -35,17 +37,18 @@ public class LocationActivity extends AppCompatActivity {
         editHeadline = findViewById(R.id.edit_headline);
         continueBtn = findViewById(R.id.continue_btn);
         auth = FirebaseAuth.getInstance();
-        ref = FirebaseDatabase.getInstance().getReference().child("Users");
+        ref = FirebaseDatabase.getInstance().getReference().child(Constants.USER_CONSTANT);
 
         continueBtn.setOnClickListener(v -> {
             Map<String, Object> map = new HashMap<>();
             map.put("location", editRegion.getText().toString());
             map.put("headline", editHeadline.getText().toString());
-            ref.child(auth.getCurrentUser().getUid()).child("Info").updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+            startActivity(new Intent(LocationActivity.this, HomeActivity.class));
+            finish();
+            ref.child(auth.getCurrentUser().getUid()).child(Constants.INFO).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull @NotNull Task<Void> task) {
-                    startActivity(new Intent(LocationActivity.this, HomeActivity.class));
-                    finish();
+
                 }
             });
         });

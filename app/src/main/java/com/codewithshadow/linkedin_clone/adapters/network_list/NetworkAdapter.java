@@ -38,10 +38,9 @@ public class NetworkAdapter extends RecyclerView.Adapter<NetworkAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull NetworkAdapter.MyViewHolder holder, int position) {
-
         holder.name.setText(list.get(position).getUsername());
         Glide.with(aCtx).load(list.get(position).getImageUrl()).into(holder.userImage);
-
+        holder.headline.setText(list.get(position).getHeadline());
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(aCtx, CustomUserActivity.class);
             intent.putExtra("user_data", list.get(position));
@@ -57,13 +56,14 @@ public class NetworkAdapter extends RecyclerView.Adapter<NetworkAdapter.MyViewHo
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name;
+        TextView name, headline;
         ImageView userImage;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.txt_name);
             userImage = itemView.findViewById(R.id.profileImg);
+            headline = itemView.findViewById(R.id.text_headline);
         }
     }
 

@@ -1,5 +1,7 @@
 package com.codewithshadow.linkedin_clone.ui.share_post;
 
+import static com.codewithshadow.linkedin_clone.constants.Constants.INFO;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -16,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.codewithshadow.linkedin_clone.R;
+import com.codewithshadow.linkedin_clone.base.BaseActivity;
 import com.codewithshadow.linkedin_clone.ui.home.HomeActivity;
 import com.codewithshadow.linkedin_clone.utils.AppSharedPreferences;
 import com.codewithshadow.linkedin_clone.utils.LoadingDialog;
@@ -36,10 +39,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class SharePostActivity extends AppCompatActivity {
+public class SharePostActivity extends BaseActivity {
     EditText edit_text;
-    ImageView post_img;
-    ImageView btn_select_img;
+    ImageView post_img, btn_select_img, profileImg, closeImg;
+    TextView userName;
     private static final int PICK_IMAGE_REQUEST = 1;
     private Uri mImageUri;
     private StorageReference mStorageRef;
@@ -62,10 +65,16 @@ public class SharePostActivity extends AppCompatActivity {
         post_img = findViewById(R.id.post_img);
         btn_select_img = findViewById(R.id.img3);
         btn_post = findViewById(R.id.btn_post);
+        userName = findViewById(R.id.user_name);
+        profileImg = findViewById(R.id.user_img);
+        closeImg = findViewById(R.id.close_img);
 
+        userName.setText(appSharedPreferences.getUserName());
+        Glide.with(this).load(appSharedPreferences.getImgUrl()).into(profileImg);
+
+        closeImg.setOnClickListener(v -> finish());
         btn_select_img.setOnClickListener(v -> openFileChooser());
         edit_text.requestFocus();
-
         edit_text.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -105,7 +114,7 @@ public class SharePostActivity extends AppCompatActivity {
         map.put("username", appSharedPreferences.getUserName());
         map.put("user_profile", appSharedPreferences.getImgUrl());
         map.put("key", key);
-        ref.child(key).child("Info").setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+        ref.child(key).child(INFO).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull @NotNull Task<Void> task) {
                 loadingDialog.dismissDialog();
@@ -169,7 +178,7 @@ public class SharePostActivity extends AppCompatActivity {
                                     map.put("username", appSharedPreferences.getUserName());
                                     map.put("user_profile", appSharedPreferences.getImgUrl());
                                     map.put("key", key);
-                                    ref.child(key).child("Info").setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    ref.child(key).child(INFO).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull @NotNull Task<Void> task) {
                                             loadingDialog.dismissDialog();

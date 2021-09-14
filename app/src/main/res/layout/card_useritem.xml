@@ -8,7 +8,10 @@
     <RelativeLayout
         android:id="@+id/item_click_parent"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:background="?attr/selectableItemBackground">
 
         <RelativeLayout
@@ -25,10 +28,12 @@
                 android:id="@+id/item_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto_medium"
                 android:lines="1"
-                android:text="saksham"
+                android:text="USER"
                 android:textColor="#131313"
                 android:textSize="14sp" />
 
@@ -37,12 +42,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/item_text"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="2dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto_bold"
                 android:lines="1"
-                android:text="hiiii"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:text="hello" />
         </RelativeLayout>
 
 
@@ -170,7 +177,6 @@
         android:layout_below="@id/item_click_parent"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="4dp"
         android:background="#B2C5C1C1" />

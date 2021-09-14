@@ -7,9 +7,9 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.codewithshadow.linkedin_clone.R;
+import com.codewithshadow.linkedin_clone.base.BaseActivity;
 import com.codewithshadow.linkedin_clone.models.user.UserModel;
 import com.codewithshadow.linkedin_clone.ui.home.HomeActivity;
 import com.codewithshadow.linkedin_clone.ui.location.LocationActivity;
@@ -32,7 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
-public class JoinNowActivity extends AppCompatActivity {
+public class JoinNowActivity extends BaseActivity {
 
     RelativeLayout googleBtn;
     FirebaseAuth auth;
@@ -48,9 +48,7 @@ public class JoinNowActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         googleBtn = findViewById(R.id.card_google_btn);
-
         googleBtn.setOnClickListener(v -> googlesignIn());
-
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
 
 

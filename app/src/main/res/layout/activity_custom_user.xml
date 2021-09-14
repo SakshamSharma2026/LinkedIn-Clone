@@ -65,9 +65,9 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_35sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:text="Description"
             android:textColor="@color/black"
             android:textSize="@dimen/_12ssp"
+            tools:text="Description"
 
             />
 
@@ -81,14 +81,14 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:backgroundTint="@color/gray"
-            android:gravity="top|left"
+            android:gravity="top|start"
             android:inputType="textEmailAddress|textMultiLine"
             android:lines="20"
             android:minLines="5"
             android:scrollbars="vertical"
             android:scrollHorizontally="false"
-            android:text="I am a Frontend Android Application Developer. Experienced Android Developer with a demonstrated history of working in the computer software industry. Skilled in Firebase, Java, Android Development, and Project Management. And I am open to internships."
-            android:textSize="@dimen/_12ssp" />
+            android:textSize="@dimen/_12ssp"
+            tools:text="I am a Frontend Android Application Developer. Experienced Android Developer with a demonstrated history of working in the computer software industry. Skilled in Firebase, Java, Android Development, and Project Management. And I am open to internships." />
 
         <View
             android:layout_width="match_parent"
@@ -149,7 +149,7 @@
         android:padding="@dimen/_5sdp">
 
         <ImageView
-            android:id="@+id/img"
+            android:id="@+id/btn_back"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
             android:layout_alignParentStart="true"
@@ -161,8 +161,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_toStartOf="@id/setting"
-            android:layout_toEndOf="@id/img">
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/btn_back">
 
             <RelativeLayout
                 android:id="@+id/item_search_holder"
@@ -190,14 +191,15 @@
                             android:id="@+id/item_search_input"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
+                            android:layout_centerInParent="true"
                             android:layout_marginEnd="5dp"
                             android:backgroundTint="#686868"
-                            android:drawableLeft="@drawable/ic_search_black_24dp"
+                            android:drawableStart="@drawable/ic_search_black_24dp"
                             android:imeOptions="actionSearch"
                             android:inputType="text"
                             android:maxLines="1"
-                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingStart="@dimen/_5sdp"
+                            android:paddingEnd="@dimen/_5sdp"
                             android:textColor="@color/black"
                             android:textColorHint="#D7797979"
                             android:textSize="16sp"
@@ -211,15 +213,6 @@
             </RelativeLayout>
         </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/setting"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/_4sdp"
-            android:src="@drawable/ic_baseline_settings_24"
-            app:tint="@color/black" />
     </RelativeLayout>
 
     <ScrollView
@@ -257,52 +250,10 @@
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginTop="-70dp"
-                        android:background="@color/black"
+                        android:layout_marginTop="-60dp"
+                        android:src="@drawable/user"
                         app:civ_border_color="@color/white"
                         app:civ_border_width="@dimen/_1sdp" />
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/white_card"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:layout_below="@id/background_img"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="-25dp"
-                        android:layout_marginTop="@dimen/_15sdp"
-                        android:layout_toEndOf="@+id/profileImg"
-                        app:cardCornerRadius="40dp"
-                        app:cardElevation="2dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-
-                            <ImageView
-                                android:id="@+id/add_story"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_centerInParent="true"
-                                android:elevation="5dp"
-                                android:src="@drawable/ic_baseline_add_24"
-                                app:tint="@color/main_color" />
-                        </RelativeLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-
-                    <ImageView
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:layout_below="@id/background_img"
-                        android:layout_alignParentEnd="true"
-                        android:layout_margin="@dimen/_8sdp"
-                        android:background="?selectableItemBackgroundBorderless"
-                        android:padding="@dimen/_2sdp"
-                        android:src="@drawable/ic_baseline_edit" />
 
 
                 </RelativeLayout>
@@ -319,32 +270,23 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_16ssp"
-                        tools:text="Saksham Sharma" />
+                        android:textSize="@dimen/_18ssp"
+                        tools:text="User" />
 
                     <TextView
-                        android:id="@+id/txt_title"
+                        android:id="@+id/txt_headline"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp"
-                        tools:text="Android Developer || ML || Java" />
-
-                    <TextView
-                        android:id="@+id/txt_work"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp"
-                        tools:text="Hello Homeo Graphic Era Hill University" />
+                        android:textSize="@dimen/_14ssp"
+                        tools:text="Android Developer" />
 
                     <TextView
                         android:id="@+id/txt_location"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/gray"
-                        android:textSize="@dimen/_10ssp"
+                        android:textSize="@dimen/_12ssp"
                         tools:text="Dehradun, Uttarakhand, India" />
 
                     <TextView
@@ -508,16 +450,8 @@
                             android:layout_centerVertical="true"
                             android:text="About"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12ssp" />
+                            android:textSize="@dimen/_14ssp" />
 
-                        <ImageView
-                            android:id="@+id/img_edit"
-                            android:layout_width="@dimen/_20sdp"
-                            android:layout_height="@dimen/_20sdp"
-                            android:layout_alignParentEnd="true"
-                            android:background="?selectableItemBackgroundBorderless"
-                            android:padding="@dimen/_2sdp"
-                            android:src="@drawable/ic_baseline_edit" />
                     </RelativeLayout>
 
                     <TextView
@@ -526,9 +460,9 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         android:ellipsize="end"
                         android:lines="3"
-                        android:text="I am a Frontend Android Application Developer. Experienced Android Developer with a demonstrated history of working in the computer software industry. Skilled in Firebase, Java, Android Development, and Project Management. And I am open to internships."
+                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10ssp" />
+                        android:textSize="@dimen/_12ssp" />
 
                 </LinearLayout>
 
@@ -542,7 +476,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp">
+                    android:padding="@dimen/_5sdp"
+                    android:visibility="gone">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -699,17 +634,13 @@
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_5sdp"
-                    android:background="#e9e6dd" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
                     android:orientation="vertical"
-                    android:padding="@dimen/_5sdp">
+                    android:padding="@dimen/_5sdp"
+                    android:visibility="gone">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -800,14 +731,8 @@
                             android:layout_centerVertical="true"
                             android:text="Contact"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12ssp" />
+                            android:textSize="@dimen/_14ssp" />
 
-                        <ImageView
-                            android:layout_width="@dimen/_20sdp"
-                            android:layout_height="@dimen/_20sdp"
-                            android:layout_alignParentEnd="true"
-                            android:padding="@dimen/_2sdp"
-                            android:src="@drawable/ic_baseline_edit" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -839,15 +764,16 @@
                                 android:fontFamily="@font/roboto_bold"
                                 android:text="Your Profile"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_12ssp" />
+                                android:textSize="@dimen/_14ssp" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:lines="2"
-                                android:text="https://www.linkedin.com/in/saksham-sharma-a4b4351a9/"
+                                android:id="@+id/profile_link"
+                                android:text="https://www.linkedin.com/in"
                                 android:textColor="@color/main_color"
-                                android:textSize="@dimen/_10ssp" />
+                                android:textSize="@dimen/_12ssp" />
 
                         </LinearLayout>
                     </RelativeLayout>
@@ -896,14 +822,15 @@
                                     android:fontFamily="@font/roboto_bold"
                                     android:text="Email"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_12ssp" />
+                                    android:textSize="@dimen/_14ssp" />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="developer.saksham@gmail.com"
+                                    android:id="@+id/user_email"
+                                    android:text="gmail.com"
                                     android:textColor="@color/main_color"
-                                    android:textSize="@dimen/_10ssp" />
+                                    android:textSize="@dimen/_12ssp" />
 
                             </LinearLayout>
                         </RelativeLayout>

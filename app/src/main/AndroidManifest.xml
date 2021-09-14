@@ -19,16 +19,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LinkedIn_Clone"
         android:usesCleartextTraffic="true">
-
         <activity android:name=".ui.custom_user.CustomUserActivity" />
-        <activity android:name=".ui.messgae_user.MessageUsersActivity" />
+        <activity android:name=".ui.message_user.MessageUsersActivity" />
         <activity android:name=".ui.location.LocationActivity" />
         <activity android:name=".ui.story.AddStoryActivity" />
         <activity android:name=".ui.story.StoryActivity" />
         <activity android:name=".ui.profile.EditProfileIntroActivity" />
         <activity
             android:name=".ui.share_post.SharePostActivity"
-            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity android:name=".ui.profile.ProfileActivity" />
         <activity android:name=".ui.home.HomeActivity" />

@@ -19,10 +19,10 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 public class UniversalImageLoderClass {
     private static final int defaultImage = R.color.gray;
-    private Context mcontext;
+    private Context mContext;
 
     public UniversalImageLoderClass(Context context) {
-        mcontext = context;
+        mContext = context;
     }
 
     public ImageLoaderConfiguration getConfig() {
@@ -39,13 +39,10 @@ public class UniversalImageLoderClass {
                 .build();
 
 
-        ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(mcontext)
+        return new ImageLoaderConfiguration.Builder(mContext)
                 .defaultDisplayImageOptions(displayImageOptions)
                 .memoryCache(new WeakMemoryCache())
                 .diskCacheSize(100 * 1024 * 1024).build();
-
-
-        return configuration;
 
     }
 

@@ -1,13 +1,16 @@
-package com.codewithshadow.linkedin_clone.ui.messgae_user;
+package com.codewithshadow.linkedin_clone.ui.message_user;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.adapters.message_users_list.MessageUserAdapter;
+import com.codewithshadow.linkedin_clone.base.BaseActivity;
+import com.codewithshadow.linkedin_clone.constants.Constants;
 import com.codewithshadow.linkedin_clone.models.user.UserModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -17,13 +20,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MessageUsersActivity extends AppCompatActivity {
+public class MessageUsersActivity extends BaseActivity {
     List<UserModel> list;
     DatabaseReference ref;
     FirebaseUser user;
@@ -38,18 +39,20 @@ public class MessageUsersActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         ref = FirebaseDatabase.getInstance().getReference();
         list = new ArrayList<>();
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         readUsers();
 
     }
 
     //    ----------------------------------Read Users--------------------------------//
     private void readUsers() {
-        ref.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+        ref.child(Constants.USER_CONSTANT).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    UserModel model = dataSnapshot.child("Info").getValue(UserModel.class);
+                    UserModel model = dataSnapshot.child(Constants.INFO).getValue(UserModel.class);
                     if (!model.getKey().equals(user.getUid())) {
                         list.add(model);
                     }
@@ -61,7 +64,7 @@ public class MessageUsersActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });

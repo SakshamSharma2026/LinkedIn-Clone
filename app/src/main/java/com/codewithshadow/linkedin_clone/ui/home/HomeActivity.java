@@ -3,6 +3,7 @@ package com.codewithshadow.linkedin_clone.ui.home;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +17,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.codewithshadow.linkedin_clone.ui.messgae_user.MessageUsersActivity;
+import com.codewithshadow.linkedin_clone.base.BaseActivity;
+import com.codewithshadow.linkedin_clone.constants.Constants;
+import com.codewithshadow.linkedin_clone.ui.message_user.MessageUsersActivity;
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.models.user.UserModel;
 import com.codewithshadow.linkedin_clone.ui.fragments.HomeFragment;
@@ -38,7 +41,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends BaseActivity {
     DrawerLayout drawerLayout;
     ImageView profileImg, messageBtn, nav_img, nav_close_img;
     NavigationView mNavigationView;
@@ -57,11 +60,12 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         appSharedPreferences = new AppSharedPreferences(this);
         user = FirebaseAuth.getInstance().getCurrentUser();
-        userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid());
+        userRef = FirebaseDatabase.getInstance().getReference().child(Constants.USER_CONSTANT).child(user.getUid());
         drawerLayout = findViewById(R.id.drawerLayout);
         profileImg = findViewById(R.id.img);
         messageBtn = findViewById(R.id.messageBtn);
         mNavigationView = findViewById(R.id.nav_view);
+
 
         //UniversalImageLoaderClass
         UniversalImageLoderClass universalImageLoderClass = new UniversalImageLoderClass(this);
@@ -72,6 +76,10 @@ public class HomeActivity extends AppCompatActivity {
         nav_name = header.findViewById(R.id.user_name);
         nav_img = header.findViewById(R.id.img);
         nav_close_img = header.findViewById(R.id.close_img);
+
+        Glide.with(this).load(appSharedPreferences.getImgUrl()).into(profileImg);
+        Glide.with(this).load(appSharedPreferences.getImgUrl()).into(nav_img);
+        nav_name.setText(appSharedPreferences.getUserName());
 
 
         nav_close_img.setOnClickListener(v -> {
@@ -92,9 +100,9 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        bottomNavigationView = findViewById(R.id.bottom_navigationbar);
+        bottomNavigationView = findViewById(R.id.bottom_navigation_bar);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationSelectedListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new HomeFragment()).commit();
 
         userRef.child("Info").addValueEventListener(new ValueEventListener() {
             @Override
@@ -108,11 +116,6 @@ public class HomeActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-
-
-        Glide.with(this).load(appSharedPreferences.getImgUrl()).into(profileImg);
-        Glide.with(this).load(appSharedPreferences.getImgUrl()).into(nav_img);
-        nav_name.setText(appSharedPreferences.getUserName());
 
     }
 
@@ -130,6 +133,7 @@ public class HomeActivity extends AppCompatActivity {
                 case R.id.nav_uplod:
                     selectedFragment = null;
                     startActivity(new Intent(HomeActivity.this, SharePostActivity.class));
+                    overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
                     break;
                 case R.id.nav_notification:
                     selectedFragment = new NotificationFragment();
@@ -140,7 +144,7 @@ public class HomeActivity extends AppCompatActivity {
             }
 
             if (selectedFragment != null) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, selectedFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, selectedFragment).commit();
             }
             return true;
         }
@@ -148,7 +152,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        BottomNavigationView mBottomNavigationView = findViewById(R.id.bottom_navigationbar);
+        BottomNavigationView mBottomNavigationView = findViewById(R.id.bottom_navigation_bar);
         if (mBottomNavigationView.getSelectedItemId() == R.id.nav_home) {
             super.onBackPressed();
             finish();

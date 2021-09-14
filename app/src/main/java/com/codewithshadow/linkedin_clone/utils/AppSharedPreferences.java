@@ -7,12 +7,8 @@ public class AppSharedPreferences {
     private SharedPreferences sharedPreference;
 
     private SharedPreferences.Editor editor;
-
-
     private static final String username = "username";
     private static final String imgUrl = "imgUrl";
-    private static final String status = "status";
-
 
     public AppSharedPreferences(Context context) {
         String Pref_Name = "Login_ID";
@@ -37,16 +33,6 @@ public class AppSharedPreferences {
 
     public String getImgUrl() {
         return sharedPreference.getString(imgUrl, null);
-    }
-
-
-    public void setStatus(String status) {
-        editor.putString(this.status, status);
-        editor.apply();
-    }
-
-    public String getStatus() {
-        return sharedPreference.getString(status, null);
     }
 
 

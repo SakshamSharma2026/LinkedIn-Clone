@@ -20,7 +20,7 @@
             android:id="@+id/button_click_parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/uigitdev_elements_profile_picture_gradient">
+            android:background="@drawable/profile_picture_gradient">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/button_body_card_parent"
@@ -58,7 +58,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/saksham"
+                                android:src="@drawable/user"
                                 app:cardBackgroundColor="@color/light_gray"
                                 app:cardCornerRadius="@dimen/_40sdp"
                                 app:civ_border_width="1dp" />

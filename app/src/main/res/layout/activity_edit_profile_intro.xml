@@ -113,7 +113,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:text="Headline*"
-
                     android:textSize="@dimen/_12ssp" />
 
                 <EditText
@@ -121,7 +120,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/gray"
-                    android:text="Android Developer"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp" />
 
@@ -130,7 +128,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:text="Current Position"
-
                     android:textSize="@dimen/_12ssp" />
 
                 <EditText
@@ -145,7 +142,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:text="Education*"
-
                     android:textSize="@dimen/_12ssp" />
 
                 <EditText

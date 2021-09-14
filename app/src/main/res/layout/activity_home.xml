@@ -23,7 +23,7 @@
             android:layout_centerHorizontal="true" />
 
         <FrameLayout
-            android:id="@+id/framelayout"
+            android:id="@+id/frame_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/bottom"
@@ -42,10 +42,10 @@
 
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_navigationbar"
+                android:id="@+id/bottom_navigation_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                app:itemBackground="@drawable/outline_checked_state"
                 app:itemIconTint="@color/color"
                 app:itemTextColor="@color/color"
                 app:labelVisibilityMode="labeled"

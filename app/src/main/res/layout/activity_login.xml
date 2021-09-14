@@ -56,46 +56,42 @@
             app:cardCornerRadius="40dp"
             app:cardElevation="0dp">
 
-            <FrameLayout
+
+            <RelativeLayout
                 android:id="@+id/continue_btn"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:background="@color/main_color">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
 
+                <ProgressBar
+                    android:id="@+id/button_progress"
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toStartOf="@id/button_text"
+                    android:indeterminate="true"
+                    android:indeterminateTint="#ffffff"
+                    android:indeterminateTintMode="src_atop"
+                    android:visibility="gone" />
 
-                    <ProgressBar
-                        android:id="@+id/button_progress"
-                        android:layout_width="21dp"
-                        android:layout_height="21dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="10dp"
-                        android:layout_toStartOf="@id/button_text"
-                        android:indeterminate="true"
-                        android:indeterminateTint="#ffffff"
-                        android:indeterminateTintMode="src_atop"
-                        android:visibility="gone" />
+                <TextView
+                    android:id="@+id/button_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="@string/join_now"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/button_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:text="@string/join_now"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_16ssp"
-                        android:textStyle="bold" />
+            </RelativeLayout>
 
-                </RelativeLayout>
-
-            </FrameLayout>
 
         </androidx.cardview.widget.CardView>
 

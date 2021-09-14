@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.codewithshadow.linkedin_clone.R;
+import com.codewithshadow.linkedin_clone.base.BaseActivity;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -28,7 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class AddStoryActivity extends AppCompatActivity {
+public class AddStoryActivity extends BaseActivity {
     private Uri mImageUri;
     String myUrl = "";
     private StorageReference mStorageReference;
@@ -83,15 +84,12 @@ public class AddStoryActivity extends AppCompatActivity {
                         myUrl = downloadUri.toString();
 
                         String myid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
                         String storyId = FirebaseDatabase.getInstance().getReference().child("AllStories").child("StoryData").push().getKey();
-
                         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
                                 .child("Story").child(myid).child(storyId);
 
                         long timend = System.currentTimeMillis() + 86400000;
-                        Long timestart = System.currentTimeMillis() / 1000;
-
+                        long timestart = System.currentTimeMillis() / 1000;
 
                         HashMap<String, Object> hashMap = new HashMap<>();
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
@@ -109,16 +107,6 @@ public class AddStoryActivity extends AppCompatActivity {
                                 finish();
                             }
                         });
-
-//                        db.collection("AllStories").document("StoryData").collection(myid).document(storyId).set(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                            @Override
-//                            public void onSuccess(Void aVoid) {
-//                                progressDialog.dismiss();
-//                                finish();
-//                            }
-//                        });
-
-
                     } else {
 
                         Toast.makeText(AddStoryActivity.this, "Failed", Toast.LENGTH_SHORT).show();

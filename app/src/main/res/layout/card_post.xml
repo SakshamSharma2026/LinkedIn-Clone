@@ -53,7 +53,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/saksham"
+                                android:src="@drawable/user"
                                 app:civ_border_color="@color/white"
                                 app:civ_border_width="1dp" />
 
@@ -82,14 +82,14 @@
                     android:fontFamily="@font/roboto_medium"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    tools:text="Saksham Sharma" />
+                    tools:text="USER" />
 
                 <TextView
-                    android:id="@+id/location"
+                    android:id="@+id/user_headline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_light"
-                    android:text="Student at gehu"
+                    android:text="Student"
                     android:textColor="@color/gray"
                     android:textSize="12sp" />
 
@@ -123,7 +123,7 @@
             android:layout_marginEnd="@dimen/_8sdp"
             android:fontFamily="@font/roboto_light"
             android:textColor="@color/black"
-            tools:text="I had developed an instagram clone application with all its functionalities .Frontend - XmlBackend - JavaNotifications - Retrofit abd VolleyDatabase - Firebase" />
+            tools:text="@tools:sample/lorem/random" />
 
 
         <androidx.cardview.widget.CardView
@@ -161,6 +161,7 @@
                 android:id="@+id/img1"
                 android:layout_width="@dimen/_10sdp"
                 android:layout_height="@dimen/_10sdp"
+                android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:src="@drawable/ic_link_like" />

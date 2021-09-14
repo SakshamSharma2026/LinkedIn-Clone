@@ -16,6 +16,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.adapters.onboarding.AppDescriptionSliderAdapter;
+import com.codewithshadow.linkedin_clone.base.BaseActivity;
+import com.codewithshadow.linkedin_clone.constants.Constants;
 import com.codewithshadow.linkedin_clone.models.user.UserModel;
 import com.codewithshadow.linkedin_clone.ui.home.HomeActivity;
 import com.codewithshadow.linkedin_clone.ui.location.LocationActivity;
@@ -38,7 +40,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     ViewPager viewPager;
     LinearLayout dotsLayout;
 
@@ -46,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView[] dots;
 
     private SignInClient oneTapClient;
-    private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
+    private static final int REQ_ONE_TAP = 1;
     private final static String TAG = "LoginActivity";
     TextView btnSignIn;
     FirebaseAuth auth;
@@ -107,10 +109,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private void OneTapLogin() {
         oneTapClient = Identity.getSignInClient(this);
-        // Your server's client ID, not your Android client ID.
-        // Only show accounts previously used to sign in.
-        // Automatically sign in when exactly one credential is retrieved.
         BeginSignInRequest signInRequest = BeginSignInRequest.builder()
+                .setPasswordRequestOptions(BeginSignInRequest.PasswordRequestOptions.builder()
+                        .setSupported(true)
+                        .build())
                 .setGoogleIdTokenRequestOptions(BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
                         .setSupported(true)
                         // Your server's client ID, not your Android client ID.
@@ -132,10 +134,9 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 })
                 .addOnFailureListener(this, e -> {
-                    // No saved credentials found. Launch the One Tap sign-up flow, or
-                    // do nothing and continue presenting the signed-out UI.
                     Log.d(TAG, e.getLocalizedMessage());
                 });
+
     }
 
     @Override
@@ -179,28 +180,31 @@ public class LoginActivity extends AppCompatActivity {
         AuthCredential authCredential = GoogleAuthProvider.getCredential(idToken, null);
         auth.signInWithCredential(authCredential).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                databaseReference.addValueEventListener(new ValueEventListener() {
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChild(auth.getCurrentUser().getUid())) {
-                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                        } else {
+                        if (!dataSnapshot.hasChild(auth.getCurrentUser().getUid())) {
                             UserModel model = new UserModel();
                             model.setEmailAddress(emailAddress);
                             model.setImageUrl(finalImageUrl);
                             model.setUsername(username);
                             model.setKey(auth.getCurrentUser().getUid());
-                            databaseReference.child(auth.getCurrentUser().getUid()).child("Info").setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            databaseReference.child(auth.getCurrentUser().getUid()).child(Constants.INFO).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull @NotNull Task<Void> task) {
                                     startActivity(new Intent(LoginActivity.this, LocationActivity.class));
+                                    finish();
                                 }
                             });
+                        } else {
+                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            finish();
                         }
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
+
                     }
                 });
             } else {

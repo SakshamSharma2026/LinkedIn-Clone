@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_5sdp"
     android:elevation="@dimen/_4sdp"
+    android:foreground="?android:selectableItemBackground"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="@dimen/_8sdp"
     app:cardElevation="@dimen/_4sdp">
@@ -12,7 +14,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?selectableItemBackground"
         android:paddingBottom="@dimen/_10sdp">
 
         <ImageView
@@ -27,8 +28,10 @@
             android:id="@+id/profileImg"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_70sdp"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_10sdp" />
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/user" />
 
         <LinearLayout
             android:id="@+id/layout"
@@ -37,9 +40,9 @@
             android:layout_below="@id/profileImg"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -49,21 +52,21 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Saksham Sharma"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="USER" />
 
             <TextView
+                android:id="@+id/text_headline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|top"
                 android:layout_marginTop="@dimen/_3sdp"
                 android:gravity="center|top"
-                android:lines="2"
-                android:text="Android Developer || ML || Java"
                 android:textColor="@color/gray"
-                android:textSize="@dimen/_10ssp" />
+                android:textSize="@dimen/_10ssp"
+                tools:text="Android Developer" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -72,8 +75,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="@dimen/_14sdp"
-                    android:layout_height="@dimen/_14sdp"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_15sdp"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:layout_toStartOf="@id/txt"

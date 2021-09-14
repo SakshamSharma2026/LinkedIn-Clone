@@ -31,8 +31,7 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_alignParentStart="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
+                    android:layout_centerInParent="true"
                     android:background="?selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_baseline_close_24" />
 
@@ -105,15 +104,13 @@
                             android:layout_height="match_parent">
 
                             <de.hdodenhof.circleimageview.CircleImageView
-                                android:id="@+id/button_image"
+                                android:id="@+id/user_img"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/saksham"
+                                android:src="@drawable/user"
                                 app:civ_border_color="@color/white"
                                 app:civ_border_width="1dp" />
-
-
                         </RelativeLayout>
 
                     </androidx.cardview.widget.CardView>
@@ -131,11 +128,11 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/username"
+                    android:id="@+id/user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Saksham Sharma"
+                    tools:text="USER"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 

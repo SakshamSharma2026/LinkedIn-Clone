@@ -46,6 +46,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHo
     public void onBindViewHolder(@NonNull RequestAdapter.MyViewHolder holder, int position) {
 
         holder.name.setText(list.get(position).getUsername());
+        holder.headline.setText(list.get(position).getHeadline());
         Glide.with(aCtx).load(list.get(position).getImageUrl()).into(holder.userImage);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child(USER_CONSTANT).child(user.getUid());
@@ -67,7 +68,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHo
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name;
+        TextView name,headline;
         ImageView userImage;
         CardView connectOk, connectCancel;
 
@@ -78,6 +79,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHo
             userImage = itemView.findViewById(R.id.item_image);
             connectOk = itemView.findViewById(R.id.connect_ok);
             connectCancel = itemView.findViewById(R.id.connect_cancel);
+            headline = itemView.findViewById(R.id.item_headline);
 
         }
     }

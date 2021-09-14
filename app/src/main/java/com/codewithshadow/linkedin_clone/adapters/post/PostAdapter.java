@@ -1,5 +1,7 @@
 package com.codewithshadow.linkedin_clone.adapters.post;
 
+import static com.codewithshadow.linkedin_clone.constants.Constants.ALL_POSTS;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
@@ -16,10 +18,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.codewithshadow.linkedin_clone.R;
+import com.codewithshadow.linkedin_clone.PostDataDiffUtil;
 import com.codewithshadow.linkedin_clone.models.post.PostModel;
 import com.codewithshadow.linkedin_clone.utils.AppSharedPreferences;
 import com.github.pgreze.reactions.PopupGravity;
@@ -52,8 +56,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     private Context aCtx;
     private List<PostModel> list;
     private final String[] strings = {
-            "Like", "Celebrate", "Support", "Love", "Insightful", "Idea"
-    };
+            "Like", "Celebrate", "Support", "Love", "Insightful", "Idea"};
     AppSharedPreferences appSharedPreferences;
 
 
@@ -67,12 +70,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(aCtx).inflate(R.layout.card_post, parent, false);
         return new MyViewHolder(view);
-
     }
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
@@ -157,7 +159,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         Glide.with(aCtx).load(list.get(position).getUser_profile()).into(holder.userImage);
         holder.userName.setText(list.get(position).getUsername());
 
-
         if (list.get(position).getImgUrl().equals("")) {
             holder.ll.setVisibility(View.GONE);
         } else {
@@ -167,10 +168,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
 
         String userKey = user.getUid();
         String postKey = list.get(position).getKey();
-        String publisherId = list.get(position).getPublisherId();
 
-
-        DatabaseReference likeRef = FirebaseDatabase.getInstance().getReference().child("AllPosts").child(postKey).child("Likes");
+        DatabaseReference likeRef = FirebaseDatabase.getInstance().getReference().child(ALL_POSTS).child(postKey).child("Likes");
         likeRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
@@ -194,7 +193,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
 
     private void isLikes(TextView textView, TextView commentcount, String postkey) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
-                .child("AllPosts")
+                .child(ALL_POSTS)
                 .child(postkey);
 
 
@@ -214,7 +213,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
     }
 
     private void addLike(String uid, String key, DatabaseReference ref, MyViewHolder holder) {
-        ref = FirebaseDatabase.getInstance().getReference().child("AllPosts").child(key).child("Likes");
+        ref = FirebaseDatabase.getInstance().getReference().child(ALL_POSTS).child(key).child("Likes");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault());
         Date date = new Date();
         Map<String, Object> map = new HashMap();
@@ -260,7 +259,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
 
         }
     }
-
 
     @Override
     public long getItemId(int position) {
