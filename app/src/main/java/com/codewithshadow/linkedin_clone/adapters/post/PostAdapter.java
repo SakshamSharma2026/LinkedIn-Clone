@@ -18,12 +18,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.codewithshadow.linkedin_clone.R;
-import com.codewithshadow.linkedin_clone.PostDataDiffUtil;
 import com.codewithshadow.linkedin_clone.models.post.PostModel;
 import com.codewithshadow.linkedin_clone.utils.AppSharedPreferences;
 import com.github.pgreze.reactions.PopupGravity;

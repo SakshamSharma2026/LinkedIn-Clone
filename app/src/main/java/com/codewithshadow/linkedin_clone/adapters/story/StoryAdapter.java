@@ -14,13 +14,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.codewithshadow.linkedin_clone.PostDataDiffUtil;
 import com.codewithshadow.linkedin_clone.R;
-import com.codewithshadow.linkedin_clone.StoryDataDiffUtil;
-import com.codewithshadow.linkedin_clone.models.post.PostModel;
 import com.codewithshadow.linkedin_clone.models.story.StoryModel;
 import com.codewithshadow.linkedin_clone.ui.story.AddStoryActivity;
 import com.codewithshadow.linkedin_clone.ui.story.StoryActivity;
@@ -236,12 +232,6 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.MyViewHolder
 
     }
 
-    public void setData(List<StoryModel> newList) {
-        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new StoryDataDiffUtil(newList, list));
-        diffResult.dispatchUpdatesTo(this);
-        list.clear();
-        this.list.addAll(newList);
-    }
 }
 
 
