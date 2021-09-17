@@ -3,18 +3,15 @@ package com.codewithshadow.linkedin_clone.adapters.request;
 import static com.codewithshadow.linkedin_clone.constants.Constants.CONNECTIONS;
 import static com.codewithshadow.linkedin_clone.constants.Constants.REQUEST;
 import static com.codewithshadow.linkedin_clone.constants.Constants.USER_CONSTANT;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.models.request.RequestModel;
@@ -22,7 +19,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.List;
 
 public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHolder> {

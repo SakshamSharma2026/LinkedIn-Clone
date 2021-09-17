@@ -2,20 +2,12 @@ package com.codewithshadow.linkedin_clone.ui.custom_user;
 
 import static com.codewithshadow.linkedin_clone.constants.Constants.REQUEST;
 import static com.codewithshadow.linkedin_clone.constants.Constants.USER_CONSTANT;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
-
 import com.bumptech.glide.Glide;
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.base.BaseActivity;
@@ -24,7 +16,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CustomUserActivity extends BaseActivity {

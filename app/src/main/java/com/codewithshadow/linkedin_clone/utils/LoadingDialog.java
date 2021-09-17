@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.view.LayoutInflater;
-
 import com.codewithshadow.linkedin_clone.R;
 
 public class LoadingDialog {

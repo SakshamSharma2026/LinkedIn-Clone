@@ -3,10 +3,8 @@ package com.codewithshadow.linkedin_clone.ui.message_user;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.adapters.message_users_list.MessageUserAdapter;
 import com.codewithshadow.linkedin_clone.base.BaseActivity;
@@ -19,7 +17,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

@@ -3,7 +3,6 @@ package com.codewithshadow.linkedin_clone.ui.splash;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.base.BaseActivity;
 import com.codewithshadow.linkedin_clone.ui.login.LoginActivity;

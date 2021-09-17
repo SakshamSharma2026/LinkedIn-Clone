@@ -2,22 +2,16 @@ package com.codewithshadow.linkedin_clone.adapters.message_users_list;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.models.user.UserModel;
-import com.codewithshadow.linkedin_clone.ui.custom_user.CustomUserActivity;
-
 import java.util.List;
 
 public class MessageUserAdapter extends RecyclerView.Adapter<MessageUserAdapter.MyViewHolder> {

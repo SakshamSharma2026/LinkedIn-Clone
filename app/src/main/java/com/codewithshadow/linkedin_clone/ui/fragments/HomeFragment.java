@@ -4,19 +4,15 @@ import static com.codewithshadow.linkedin_clone.constants.Constants.ALL_POSTS;
 import static com.codewithshadow.linkedin_clone.constants.Constants.INFO;
 import static com.codewithshadow.linkedin_clone.constants.Constants.STORY;
 import static com.codewithshadow.linkedin_clone.constants.Constants.USER_CONSTANT;
-
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.adapters.post.PostAdapter;
 import com.codewithshadow.linkedin_clone.adapters.story.StoryAdapter;
@@ -31,9 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.todkars.shimmer.ShimmerRecyclerView;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

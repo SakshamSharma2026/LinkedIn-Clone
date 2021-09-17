@@ -1,7 +1,6 @@
 package com.codewithshadow.linkedin_clone.utils;
 
 import android.app.Application;
-
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.FirebaseDatabase;
 

@@ -1,7 +1,6 @@
 package com.codewithshadow.linkedin_clone.ui.share_post;
 
 import static com.codewithshadow.linkedin_clone.constants.Constants.INFO;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -12,10 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.bumptech.glide.Glide;
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.base.BaseActivity;
@@ -34,9 +30,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.util.HashMap;
 
 public class SharePostActivity extends BaseActivity {
