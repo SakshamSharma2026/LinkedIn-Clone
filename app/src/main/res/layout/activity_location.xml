@@ -33,7 +33,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:padding="@dimen/_15sdp"
-            android:text="What's your location?"
+            android:text="@string/location"
             android:textColor="@color/black"
             android:textSize="@dimen/_16ssp"
             android:textStyle="bold" />
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="See people,jobs, and news in your area"
+            android:text="@string/see_people"
             android:textColor="@color/gray"
             android:textSize="@dimen/_12ssp" />
 
@@ -54,7 +54,7 @@
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:gravity="start"
-            android:text="Country/Region"
+            android:text="@string/country"
             android:textColor="@color/gray"
             android:textSize="@dimen/_14ssp" />
 
@@ -65,7 +65,7 @@
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:backgroundTint="@color/gray"
-            android:text="India"
+            android:text="@string/india"
             android:textSize="@dimen/_16ssp" />
 
         <TextView
@@ -75,7 +75,7 @@
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_15sdp"
             android:gravity="start"
-            android:text="Headline"
+            android:text="@string/headline"
             android:textColor="@color/gray"
             android:textSize="@dimen/_14ssp" />
 
@@ -86,8 +86,8 @@
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:backgroundTint="@color/gray"
-            tools:text="android developer"
-            android:textSize="@dimen/_16ssp" />
+            android:textSize="@dimen/_16ssp"
+            tools:text="android developer" />
     </LinearLayout>
 
 
@@ -168,7 +168,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:padding="@dimen/_15sdp"
-            android:text="Skip"
+            android:text="@string/skip"
             android:textColor="@color/gray"
             android:textSize="@dimen/_16ssp"
             android:textStyle="bold" />

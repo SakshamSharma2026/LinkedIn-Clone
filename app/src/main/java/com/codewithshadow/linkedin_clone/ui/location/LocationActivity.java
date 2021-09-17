@@ -39,16 +39,17 @@ public class LocationActivity extends BaseActivity {
         auth = FirebaseAuth.getInstance();
         ref = FirebaseDatabase.getInstance().getReference().child(Constants.USER_CONSTANT);
 
+        //Continue Button
         continueBtn.setOnClickListener(v -> {
             Map<String, Object> map = new HashMap<>();
             map.put("location", editRegion.getText().toString());
             map.put("headline", editHeadline.getText().toString());
-            startActivity(new Intent(LocationActivity.this, HomeActivity.class));
-            finish();
+
             ref.child(auth.getCurrentUser().getUid()).child(Constants.INFO).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull @NotNull Task<Void> task) {
-
+                    startActivity(new Intent(LocationActivity.this, HomeActivity.class));
+                    finish();
                 }
             });
         });

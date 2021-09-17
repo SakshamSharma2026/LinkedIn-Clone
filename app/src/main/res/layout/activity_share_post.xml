@@ -42,7 +42,7 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_toEndOf="@id/close_img"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Share Post"
+                    android:text="@string/share_post"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp" />
 
@@ -54,7 +54,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Post"
+                    android:text="@string/post"
                     android:textColor="@color/light_gray"
                     android:textSize="@dimen/_12ssp" />
             </RelativeLayout>
@@ -132,9 +132,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_medium"
-                    tools:text="USER"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    tools:text="USER" />
 
             </LinearLayout>
 
@@ -161,10 +161,11 @@
                 android:layout_centerHorizontal="true"
                 android:backgroundTint="#00686868"
                 android:gravity="top"
-                android:hint="What do you want to talk about?"
+                android:hint="@string/talk_about"
                 android:imeOptions="flagNoExtractUi"
                 android:inputType="textMultiLine"
                 android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
                 android:textColor="@color/black"
                 android:textCursorDrawable="@color/gray"
                 android:textSize="@dimen/_14ssp" />
@@ -210,7 +211,7 @@
         android:layout_centerVertical="true"
         android:layout_margin="@dimen/_12sdp"
         android:fontFamily="@font/roboto_medium"
-        android:text="# Add hastag"
+        android:text="@string/add_hashtag"
         android:textColor="@color/main_color"
         android:textSize="14sp" />
 

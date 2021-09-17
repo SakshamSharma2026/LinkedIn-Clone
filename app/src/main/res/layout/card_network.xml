@@ -111,7 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Connect"
+                android:text="@string/connect"
                 android:textColor="@color/main_color"
                 android:textSize="@dimen/_12ssp"
                 android:textStyle="bold" />

@@ -2,6 +2,7 @@ package com.codewithshadow.linkedin_clone.ui.fragments;
 
 import static com.codewithshadow.linkedin_clone.constants.Constants.ALL_POSTS;
 import static com.codewithshadow.linkedin_clone.constants.Constants.INFO;
+import static com.codewithshadow.linkedin_clone.constants.Constants.STORY;
 import static com.codewithshadow.linkedin_clone.constants.Constants.USER_CONSTANT;
 
 import android.os.Bundle;
@@ -57,41 +58,37 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        recyclerView = view.findViewById(R.id.recycler);
-        recyclerViewStory = view.findViewById(R.id.mystoryrecycler);
+        recyclerView = view.findViewById(R.id.post_recycler);
+        recyclerViewStory = view.findViewById(R.id.story_recycler);
         user = FirebaseAuth.getInstance().getCurrentUser();
         ref = FirebaseDatabase.getInstance().getReference();
         ref.keepSynced(true);
         list = new ArrayList<>();
         storyModelList = new ArrayList<>();
         followingList = new ArrayList<>();
-
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        //Post RecyclerView
         recyclerView.showShimmer();
         adapter = new PostAdapter(getContext(), list);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setNestedScrollingEnabled(false);
 
+        //Story RecyclerView
         storyAdapter = new StoryAdapter(getActivity(), storyModelList);
         recyclerViewStory.setHasFixedSize(true);
         recyclerViewStory.setLayoutManager(new LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false));
         recyclerViewStory.setAdapter(storyAdapter);
         recyclerViewStory.setNestedScrollingEnabled(false);
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Read_Posts();
-            }
-        }, 2000);
-
+        //Functions
+        Read_Posts();
         GetAllUsersId();
 
     }
@@ -148,7 +145,7 @@ public class HomeFragment extends Fragment {
     //-----------------------------Read Story------------------------//
 
     private void readStory() {
-        ref.child("Story").addValueEventListener(new ValueEventListener() {
+        ref.child(STORY).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 long timeCurrent = System.currentTimeMillis();

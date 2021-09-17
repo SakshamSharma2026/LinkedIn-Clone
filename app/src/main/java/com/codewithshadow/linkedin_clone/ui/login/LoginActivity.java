@@ -43,10 +43,8 @@ import org.jetbrains.annotations.NotNull;
 public class LoginActivity extends BaseActivity {
     ViewPager viewPager;
     LinearLayout dotsLayout;
-
     AppDescriptionSliderAdapter appDescriptionSliderAdapter;
     TextView[] dots;
-
     private SignInClient oneTapClient;
     private static final int REQ_ONE_TAP = 1;
     private final static String TAG = "LoginActivity";
@@ -74,6 +72,7 @@ public class LoginActivity extends BaseActivity {
         btnSignIn = findViewById(R.id.btn_signIn);
         btnSignIn.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, JoinNowActivity.class)));
 
+        //Function
         OneTapLogin();
     }
 

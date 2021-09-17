@@ -199,7 +199,6 @@
                             android:inputType="text"
                             android:maxLines="1"
                             android:paddingStart="@dimen/_10sdp"
-                            android:text="Saksham Sharma"
                             android:textColor="@color/black"
                             android:textColorHint="#D7797979"
                             android:textSize="16sp" />
@@ -328,7 +327,6 @@
                         android:id="@+id/headlineTxt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Android Developer || ML || Java"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp" />
 
@@ -336,7 +334,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:text="FamPay - Graphic Era Hill University"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp" />
 
@@ -394,7 +391,7 @@
                                         android:gravity="center"
                                         android:paddingStart="10dp"
                                         android:paddingEnd="10dp"
-                                        android:text="Open to"
+                                        android:text="@string/open_to"
                                         android:textColor="@color/white"
                                         android:textSize="@dimen/_12ssp"
                                         android:textStyle="bold" />
@@ -435,7 +432,7 @@
                                         android:gravity="center"
                                         android:paddingStart="10dp"
                                         android:paddingEnd="10dp"
-                                        android:text="Add section"
+                                        android:text="@string/add_sec"
                                         android:textColor="@color/gray"
                                         android:textSize="@dimen/_12ssp"
                                         android:textStyle="bold" />
@@ -509,7 +506,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Your Dashboard"
+                            android:text="@string/dashboard"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp" />
 
@@ -517,7 +514,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="Private to you"
+                            android:text="@string/private_to_you"
 
                             android:textColor="@color/black"
                             android:textSize="@dimen/_10ssp" />
@@ -532,7 +529,7 @@
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:padding="@dimen/_3sdp"
-                        android:text="All-Star"
+                        android:text="@string/all_star"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
@@ -567,7 +564,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_bold"
-                                    android:text="0"
+                                    android:text="@string/zero"
                                     android:textColor="@color/main_color"
                                     android:textSize="@dimen/_13ssp" />
 
@@ -576,7 +573,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/_3sdp"
                                     android:fontFamily="@font/roboto_medium"
-                                    android:text="Who viewed your profile"
+                                    android:text="@string/who_viewed"
                                     android:textColor="@color/gray"
                                     android:textSize="@dimen/_10ssp" />
                             </LinearLayout>
@@ -598,7 +595,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_bold"
-                                    android:text="0"
+                                    android:text="@string/zero"
                                     android:textColor="@color/main_color"
                                     android:textSize="@dimen/_13ssp" />
 
@@ -607,7 +604,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/_3sdp"
                                     android:fontFamily="@font/roboto_medium"
-                                    android:text="Post Views"
+                                    android:text="@string/post_view"
                                     android:textColor="@color/gray"
                                     android:textSize="@dimen/_10ssp" />
                             </LinearLayout>
@@ -629,7 +626,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_bold"
-                                    android:text="0"
+                                    android:text="@string/zero"
                                     android:textColor="@color/main_color"
                                     android:textSize="@dimen/_13ssp" />
 
@@ -638,7 +635,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/_3sdp"
                                     android:fontFamily="@font/roboto_medium"
-                                    android:text="Search appearances"
+                                    android:text="@string/search_app"
                                     android:textColor="@color/gray"
                                     android:textSize="@dimen/_10ssp" />
                             </LinearLayout>
@@ -687,7 +684,7 @@
                                     android:layout_marginStart="@dimen/_5sdp"
                                     android:layout_toEndOf="@+id/img_cm"
                                     android:fontFamily="@font/roboto_medium"
-                                    android:text="Creator mode:"
+                                    android:text="@string/creator_mode"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_12ssp" />
 
@@ -697,7 +694,7 @@
                                     android:layout_marginStart="@dimen/_2sdp"
                                     android:layout_toEndOf="@+id/text_cm"
                                     android:fontFamily="@font/roboto_medium"
-                                    android:text="Off"
+                                    android:text="@string/off"
                                     android:textColor="@color/gray"
                                     android:textSize="@dimen/_12ssp" />
 
@@ -708,7 +705,7 @@
                                     android:layout_marginStart="@dimen/_5sdp"
                                     android:layout_marginTop="@dimen/_3sdp"
                                     android:layout_toEndOf="@+id/img_cm"
-                                    android:text="Creator mode highlights content on your profile and helps you to get discovored by potiental followers"
+                                    android:text="@string/creator"
                                     android:textColor="@color/gray"
                                     android:textSize="@dimen/_10ssp" />
 
@@ -870,7 +867,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
-                            android:text="About"
+                            android:text="@string/about"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp" />
 
@@ -893,7 +890,7 @@
                         android:lines="3"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp"
-                        tools:text="@tools:sample/lorem/random"/>
+                        tools:text="@tools:sample/lorem/random" />
 
                 </LinearLayout>
 
@@ -918,7 +915,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
-                            android:text="Experience"
+                            android:text="@string/experience"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp" />
 
@@ -970,7 +967,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="0"
+                                android:text="@string/zero"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_12ssp"
 
@@ -1024,7 +1021,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="0"
+                                android:text="@string/zero"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_12ssp"
 
@@ -1053,7 +1050,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
-                                android:text="Education"
+                                android:text="@string/education"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_14ssp" />
 
@@ -1104,7 +1101,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="0"
+                                    android:text="@string/zero"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_12ssp"
 
@@ -1139,7 +1136,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
-                            android:text="Accomplishments"
+                            android:text="@string/accomplishments"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp" />
 
@@ -1264,7 +1261,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
-                            android:text="Contact"
+                            android:text="@string/contact"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp" />
 

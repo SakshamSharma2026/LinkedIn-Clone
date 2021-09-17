@@ -69,13 +69,17 @@ public class NetworkFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        //Network RecyclerView
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 2));
         recyclerView.setNestedScrollingEnabled(false);
+
+        //Request RecyclerView
         requestRecyclerView.setHasFixedSize(true);
         requestRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         requestRecyclerView.setNestedScrollingEnabled(false);
 
+        //Functions
         readUsers();
         GetAllUsersId();
     }
@@ -101,7 +105,7 @@ public class NetworkFragment extends Fragment {
         });
     }
 
-    //    ----------------------------------Read Request--------------------------------//
+    //----------------------------------Read Request--------------------------------//
     private void readRequest() {
         ref.child(USER_CONSTANT).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -126,8 +130,7 @@ public class NetworkFragment extends Fragment {
         });
     }
 
-
-    //    ----------------------------------Read Users--------------------------------//
+    //----------------------------------Read Users--------------------------------//
     private void readUsers() {
         connectionList = new ArrayList<>();
         ref.child(USER_CONSTANT).addListenerForSingleValueEvent(new ValueEventListener() {

@@ -5,6 +5,10 @@ import static com.codewithshadow.linkedin_clone.constants.Constants.USER_CONSTAN
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,6 +44,9 @@ public class CustomUserActivity extends BaseActivity {
         user = auth.getCurrentUser();
         database = FirebaseDatabase.getInstance().getReference();
 
+
+
+        // Get Data From Adapter
         Intent intent = getIntent();
         UserModel userModel = intent.getParcelableExtra("user_data");
 
@@ -55,8 +62,11 @@ public class CustomUserActivity extends BaseActivity {
         profile_link = findViewById(R.id.profile_link);
 
 
+        // Back Button
         backBtn.setOnClickListener(v -> finish());
 
+
+        //Set Values
         item_search_input.setText(userModel.getUsername());
         txt_name.setText(userModel.getUsername());
         txt_location.setText(userModel.getLocation());
@@ -65,10 +75,13 @@ public class CustomUserActivity extends BaseActivity {
         profile_link.setText(String.format("%s%s%s", "https://www.linkedin.com/in/", userModel.getUsername(), "-a785i1b7/"));
         Glide.with(this).load(userModel.getImageUrl()).into(profileImg);
 
+        // Send Connection Request
         connectBtn.setOnClickListener(v -> {
             database.child(USER_CONSTANT).child(userModel.getKey()).child(REQUEST).child(user.getUid()).setValue(true);
             connectBtn.setCardBackgroundColor(ContextCompat.getColor(this, R.color.gray));
             connectBtn.setEnabled(false);
         });
     }
+
+
 }

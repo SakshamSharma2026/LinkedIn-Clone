@@ -37,10 +37,6 @@ public class UserModel implements Parcelable {
         return headline;
     }
 
-    public void setHeadline(String headline) {
-        this.headline = headline;
-    }
-
     public String getLocation() {
         return location;
     }
@@ -85,15 +81,6 @@ public class UserModel implements Parcelable {
     public void setKey(String key) {
         this.key = key;
     }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
 
     public UserModel(String username, String emailAddress, String imageUrl, String key, String token, String location, String headline, String about) {
         this.username = username;

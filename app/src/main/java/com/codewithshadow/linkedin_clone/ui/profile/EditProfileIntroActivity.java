@@ -1,5 +1,7 @@
 package com.codewithshadow.linkedin_clone.ui.profile;
 
+import static com.codewithshadow.linkedin_clone.constants.Constants.USER_CONSTANT;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -25,7 +27,6 @@ import java.util.Map;
 public class EditProfileIntroActivity extends BaseActivity {
     EditText editTextFirstName, editTextLastName, editTextHeadline, editTextPosition, editTextEducation, editTextLocation;
     String stringUserName, stringUserImgUrl, stringUserLocation;
-
     DatabaseReference ref;
     FirebaseUser user;
     TextView saveBtn;
@@ -35,7 +36,7 @@ public class EditProfileIntroActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile_intro);
         user = FirebaseAuth.getInstance().getCurrentUser();
-        ref = FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid());
+        ref = FirebaseDatabase.getInstance().getReference().child(USER_CONSTANT).child(user.getUid());
         editTextFirstName = findViewById(R.id.edit_first_name);
         editTextLastName = findViewById(R.id.edit_last_name);
         editTextHeadline = findViewById(R.id.edit_headline);
@@ -45,6 +46,8 @@ public class EditProfileIntroActivity extends BaseActivity {
 
         saveBtn = findViewById(R.id.save_btn);
 
+
+        // Get Data From Activity
         Intent intent = getIntent();
         stringUserName = intent.getStringExtra("user_name");
         stringUserImgUrl = intent.getStringExtra("user_imgUrl");
@@ -56,6 +59,8 @@ public class EditProfileIntroActivity extends BaseActivity {
         editTextLastName.setText(split[1]);
 
         editTextLocation.setText(stringUserLocation);
+
+        // Save Button
         saveBtn.setOnClickListener(v -> {
             ref.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override

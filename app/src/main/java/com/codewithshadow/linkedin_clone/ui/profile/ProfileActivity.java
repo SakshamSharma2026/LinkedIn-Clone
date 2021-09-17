@@ -12,7 +12,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
@@ -67,7 +66,10 @@ public class ProfileActivity extends BaseActivity {
         model = new UserModel();
 
 
+        // Back Button
         btn_back.setOnClickListener(v -> onBackPressed());
+
+        //Get Data from Firebase
         userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -83,7 +85,7 @@ public class ProfileActivity extends BaseActivity {
                     aboutTxt.setText(snapshot.child("Data").child("about").getValue(String.class));
                     aboutTxt.setLines(3);
                 } else {
-                    aboutTxt.setText("Add a summary about yourself");
+                    aboutTxt.setText(String.format("%s", "Add a summary about yourself"));
                     aboutTxt.setLines(1);
                 }
                 connectionsTxt.setText(snapshot.child("Connections").getChildrenCount() + " connections");
@@ -96,6 +98,7 @@ public class ProfileActivity extends BaseActivity {
         });
 
 
+        // Save Button
         saveAboutBtn.setOnClickListener(v -> {
             userRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -118,6 +121,7 @@ public class ProfileActivity extends BaseActivity {
         });
 
 
+        // Edit Profile
         img_edit_about.setOnClickListener(v -> edit_about_layout.setVisibility(View.VISIBLE));
         img_edit_profile.setOnClickListener(v -> {
             Intent intent = new Intent(ProfileActivity.this, EditProfileIntroActivity.class);

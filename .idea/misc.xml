@@ -8,9 +8,11 @@
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/drawable/outline_bottom_nav_bar.xml" value="0.2449074074074074" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/drawable/outline_button.xml" value="0.2449074074074074" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/drawable/outline_checked_state.xml" value="0.2449074074074074" />
+        <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/drawable/seach_view_background.xml" value="0.2449074074074074" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/drawable/without_line_bottom_nav_bar.xml" value="0.2449074074074074" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/activity_add_story.xml" value="0.23055555555555557" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/activity_custom_user.xml" value="0.264" />
+        <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/activity_deep_link.xml" value="0.23055555555555557" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/activity_edit_profile_intro.xml" value="0.23055555555555557" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/activity_extra.xml" value="0.23055555555555557" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/activity_home.xml" value="0.23055555555555557" />
@@ -22,6 +24,7 @@
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/activity_share_post.xml" value="0.23055555555555557" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/activity_splash_screen.xml" value="0.23055555555555557" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/activity_story.xml" value="0.23055555555555557" />
+        <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/activity_web.xml" value="0.536" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/card_circle_story_shimmer.xml" value="0.23055555555555557" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/card_like.xml" value="0.23055555555555557" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/card_mystory.xml" value="0.72" />
@@ -41,6 +44,7 @@
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/layout/slides_layout.xml" value="0.23055555555555557" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/menu/bottom_nav_bar.xml" value="0.23055555555555557" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/menu/bottomnavbar.xml" value="0.23055555555555557" />
+        <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/menu/share_menu.xml" value="0.23055555555555557" />
         <entry key="..\:/Project/LinkedIn-Clone/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.13333333333333333" />
       </map>
     </option>

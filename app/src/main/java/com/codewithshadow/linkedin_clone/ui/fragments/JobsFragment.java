@@ -36,6 +36,5 @@ public class JobsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Glide.with(requireContext()).load(appSharedPreferences.getImgUrl()).into(profileImg);
-
     }
 }

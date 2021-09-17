@@ -8,9 +8,8 @@
     <ImageView
         android:id="@+id/slider_image"
         android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_250sdp"
+        android:layout_height="@dimen/_220sdp"
         android:padding="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_20sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

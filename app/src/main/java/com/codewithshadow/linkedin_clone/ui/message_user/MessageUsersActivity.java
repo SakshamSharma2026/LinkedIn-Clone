@@ -39,13 +39,17 @@ public class MessageUsersActivity extends BaseActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         ref = FirebaseDatabase.getInstance().getReference();
         list = new ArrayList<>();
+
+        //User RecyclerView
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //Function
         readUsers();
 
     }
 
-    //    ----------------------------------Read Users--------------------------------//
+    //----------------------------------Read Users--------------------------------//
     private void readUsers() {
         ref.child(Constants.USER_CONSTANT).addValueEventListener(new ValueEventListener() {
             @Override

@@ -3,7 +3,6 @@ package com.codewithshadow.linkedin_clone.ui.home;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,21 +10,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.base.BaseActivity;
 import com.codewithshadow.linkedin_clone.constants.Constants;
-import com.codewithshadow.linkedin_clone.ui.message_user.MessageUsersActivity;
-import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.models.user.UserModel;
 import com.codewithshadow.linkedin_clone.ui.fragments.HomeFragment;
 import com.codewithshadow.linkedin_clone.ui.fragments.JobsFragment;
 import com.codewithshadow.linkedin_clone.ui.fragments.NetworkFragment;
 import com.codewithshadow.linkedin_clone.ui.fragments.NotificationFragment;
+import com.codewithshadow.linkedin_clone.ui.message_user.MessageUsersActivity;
 import com.codewithshadow.linkedin_clone.ui.profile.ProfileActivity;
 import com.codewithshadow.linkedin_clone.ui.share_post.SharePostActivity;
 import com.codewithshadow.linkedin_clone.utils.AppSharedPreferences;
@@ -72,38 +70,50 @@ public class HomeActivity extends BaseActivity {
         ImageLoader.getInstance().init(universalImageLoderClass.getConfig());
 
 
+        // Header
         View header = mNavigationView.getHeaderView(0);
         nav_name = header.findViewById(R.id.user_name);
         nav_img = header.findViewById(R.id.img);
         nav_close_img = header.findViewById(R.id.close_img);
+        tt = header.findViewById(R.id.tt);
 
+        //Open Profile Activity
+        tt.setOnClickListener(v -> startActivity(new Intent(HomeActivity.this, ProfileActivity.class)));
+
+        // Set Header Data
         Glide.with(this).load(appSharedPreferences.getImgUrl()).into(profileImg);
         Glide.with(this).load(appSharedPreferences.getImgUrl()).into(nav_img);
         nav_name.setText(appSharedPreferences.getUserName());
 
 
+        //NavBar Close
         nav_close_img.setOnClickListener(v -> {
             if (drawerLayout.isDrawerOpen(GravityCompat.START))
                 drawerLayout.closeDrawer(GravityCompat.START);
         });
-        tt = header.findViewById(R.id.tt);
-        tt.setOnClickListener(v -> startActivity(new Intent(HomeActivity.this, ProfileActivity.class)));
 
+
+        // Open Drawer Layout
         profileImg.setOnClickListener(v -> {
             if (!drawerLayout.isDrawerOpen(GravityCompat.START))
                 drawerLayout.openDrawer(Gravity.START);
             else drawerLayout.closeDrawer(Gravity.END);
         });
 
+        // Open Message Activity
         messageBtn.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, MessageUsersActivity.class);
             startActivity(intent);
         });
 
+
+        //BottomNavigationView
         bottomNavigationView = findViewById(R.id.bottom_navigation_bar);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationSelectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new HomeFragment()).commit();
 
+
+        // Get Data from Firebase
         userRef.child("Info").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

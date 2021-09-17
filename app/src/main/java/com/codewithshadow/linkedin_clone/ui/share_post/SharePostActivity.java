@@ -72,8 +72,13 @@ public class SharePostActivity extends BaseActivity {
         userName.setText(appSharedPreferences.getUserName());
         Glide.with(this).load(appSharedPreferences.getImgUrl()).into(profileImg);
 
+        // Close Activity
         closeImg.setOnClickListener(v -> finish());
+
+        // Select Image
         btn_select_img.setOnClickListener(v -> openFileChooser());
+
+
         edit_text.requestFocus();
         edit_text.addTextChangedListener(new TextWatcher() {
             @Override
@@ -92,6 +97,7 @@ public class SharePostActivity extends BaseActivity {
             }
         });
 
+        // Post Button
         btn_post.setOnClickListener(v ->
         {
             if (mImageUri != null) {

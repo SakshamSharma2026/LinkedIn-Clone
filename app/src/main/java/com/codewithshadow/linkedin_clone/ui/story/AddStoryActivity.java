@@ -9,10 +9,10 @@ import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.base.BaseActivity;
+import com.codewithshadow.linkedin_clone.constants.Constants;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -28,6 +28,7 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class AddStoryActivity extends BaseActivity {
     private Uri mImageUri;
@@ -40,7 +41,7 @@ public class AddStoryActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_story);
-        mStorageReference = FirebaseStorage.getInstance().getReference("Story");
+        mStorageReference = FirebaseStorage.getInstance().getReference(Constants.STORY);
 
         openFileChooser();
     }
@@ -52,7 +53,7 @@ public class AddStoryActivity extends BaseActivity {
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
 
-    private String getFileExtenstion(Uri uri) {
+    private String getFileExtension(Uri uri) {
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
@@ -65,7 +66,7 @@ public class AddStoryActivity extends BaseActivity {
 
         if (mImageUri != null) {
             StorageReference imageReference = mStorageReference.child(System.currentTimeMillis() + "." +
-                    getFileExtenstion(mImageUri));
+                    getFileExtension(mImageUri));
 
             storageTask = imageReference.putFile(mImageUri);
             storageTask.continueWithTask(new Continuation() {
@@ -92,7 +93,7 @@ public class AddStoryActivity extends BaseActivity {
                         long timestart = System.currentTimeMillis() / 1000;
 
                         HashMap<String, Object> hashMap = new HashMap<>();
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault());
                         Date date = new Date();
                         hashMap.put("storyImg", myUrl);
                         hashMap.put("timestart", timestart);

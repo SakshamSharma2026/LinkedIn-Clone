@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">LinkedIn</string>
-<!--    <string name="default_web_client_id">576291268650-7vsvbtg4hnddomqr7b3g8nh4idf0gk62.apps.googleusercontent.com</string>-->
+    <!--    <string name="default_web_client_id">576291268650-7vsvbtg4hnddomqr7b3g8nh4idf0gk62.apps.googleusercontent.com</string>-->
 
     <!--    App Description Heading-->
     <string name="search_heading">Find and land your next job</string>
@@ -11,6 +11,51 @@
     <string name="join_now">Join now</string>
     <string name="join_with_google">Join with Google</string>
     <string name="sign_in">Sign in</string>
+
+    <!--  Location Activity-->
+    <string name="location">What\'s your location?</string>
+    <string name="see_people">See people,jobs, and news in your area</string>
+    <string name="country">Country/Region</string>
+    <string name="india">India</string>
+    <string name="headline">Headline</string>
+    <string name="skip">Skip</string>
+
+
+    <!--  Profile Activity-->
+    <string name="open_to">Open to</string>
+    <string name="add_sec">Add section</string>
+    <string name="dashboard">Your Dashboard</string>
+    <string name="private_to_you">Private to you</string>
+    <string name="all_star">All-Star</string>
+    <string name="zero">0</string>
+    <string name="who_viewed">Who viewed your profile</string>
+    <string name="post_view">Post views</string>
+    <string name="search_app">Search appearances</string>
+    <string name="creator_mode">Creator mode:</string>
+    <string name="off">Off</string>
+    <string name="creator">Creator mode highlights content on your profile and helps you to get discovered by potential followers</string>
+    <string name="about">About</string>
+    <string name="experience">Experience</string>
+    <string name="contact">Contact</string>
+    <string name="accomplishments">Accomplishments</string>
+    <string name="education">Education</string>
+
+
+    <!--  Share Post Activity-->
+    <string name="share_post">Share Post</string>
+    <string name="post">Post</string>
+    <string name="talk_about">What do you want to talk about?</string>
+    <string name="add_hashtag"># Add hashtag</string>
+
+
+    <string name="connect">Connect</string>
+
+
+
+
+
+
+
 
 
     <string name="fg_password">Forgot password?</string>
