@@ -1,6 +1,6 @@
 # LinkedIn-Clone
 
-> LinkedIn clone is an android application with functionalities like add post, add a story, like a post,connection request.
+> LinkedIn clone is an android application with functionalities like one-tap login, add post, add a story, like a post, send connection request.
 
 # Technology Used -
 
@@ -8,4 +8,6 @@
 * Java
 * Firebase
 
+> Video Link - 
+* https://www.linkedin.com/posts/saksham-sharma-a4b4351a9_android-linkedin-java-activity-6843433515615428608-yL9B
 
