@@ -23,7 +23,7 @@ LinkedIn-clone is an android application with functionalities like one-tap login
 
 
 # Project Structure
-
+```
 └───linkedin_clone
 ├───adapters
 │       AppDescriptionSliderAdapter.java
@@ -90,7 +90,7 @@ LinkedIn-clone is an android application with functionalities like one-tap login
         FirebaseHandler.java
         LoadingDialog.java
         UniversalImageLoderClass.java
-
+```
 
 
 > Video Link - 
