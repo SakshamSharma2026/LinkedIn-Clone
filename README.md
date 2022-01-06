@@ -2,17 +2,22 @@
 
 LinkedIn-clone is an android application with functionalities like one-tap login, add post, add a story, like a post, send connection request.
 
-# Technology Used -
+
+# Screenshots
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+# Technology Used
 * XML
 * Java
 * Firebase
 
-# Requirements -
-*Android 5.0 and Above
-*Min sdk version 21
+# Requirements
+* Android 6.0 and Above
+* Min sdk version 23
 
 
-# Permissions -
+# Permissions
 * Internet
 
 > Video Link - 
