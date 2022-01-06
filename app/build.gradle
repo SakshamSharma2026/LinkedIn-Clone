@@ -67,7 +67,6 @@ dependencies {
         exclude group: 'com.android.support'
     }
 
-    implementation 'com.karumi:dexter:6.2.2'
 
     //Google
     implementation 'com.google.android.material:material:1.4.0'
@@ -88,7 +87,6 @@ dependencies {
     //CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-
     //AutoLinkText
     implementation 'com.github.armcha:AutoLinkTextView:0.3.0'
 
@@ -104,6 +102,4 @@ dependencies {
     //Shimmer
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
     implementation 'com.todkars:shimmer-recyclerview:0.4.1'
-
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1")
 }

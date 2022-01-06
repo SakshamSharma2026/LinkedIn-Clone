@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide;
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.base.BaseActivity;
 import com.codewithshadow.linkedin_clone.constants.Constants;
-import com.codewithshadow.linkedin_clone.models.user.UserModel;
+import com.codewithshadow.linkedin_clone.models.UserModel;
 import com.codewithshadow.linkedin_clone.ui.fragments.HomeFragment;
 import com.codewithshadow.linkedin_clone.ui.fragments.JobsFragment;
 import com.codewithshadow.linkedin_clone.ui.fragments.NetworkFragment;

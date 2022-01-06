@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat;
 import com.bumptech.glide.Glide;
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.base.BaseActivity;
-import com.codewithshadow.linkedin_clone.models.user.UserModel;
+import com.codewithshadow.linkedin_clone.models.UserModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;

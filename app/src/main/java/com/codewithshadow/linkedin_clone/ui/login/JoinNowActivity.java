@@ -8,7 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.base.BaseActivity;
-import com.codewithshadow.linkedin_clone.models.user.UserModel;
+import com.codewithshadow.linkedin_clone.models.UserModel;
 import com.codewithshadow.linkedin_clone.ui.home.HomeActivity;
 import com.codewithshadow.linkedin_clone.ui.location.LocationActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;

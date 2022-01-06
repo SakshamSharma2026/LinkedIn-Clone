@@ -14,7 +14,7 @@ import androidx.cardview.widget.CardView;
 import com.bumptech.glide.Glide;
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.base.BaseActivity;
-import com.codewithshadow.linkedin_clone.models.user.UserModel;
+import com.codewithshadow.linkedin_clone.models.UserModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;

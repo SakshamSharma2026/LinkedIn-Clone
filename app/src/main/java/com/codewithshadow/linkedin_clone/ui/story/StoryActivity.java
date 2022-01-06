@@ -13,7 +13,7 @@ import androidx.core.content.ContextCompat;
 import com.codewithshadow.linkedin_clone.R;
 import com.codewithshadow.linkedin_clone.base.BaseActivity;
 import com.codewithshadow.linkedin_clone.constants.Constants;
-import com.codewithshadow.linkedin_clone.models.story.StoryModel;
+import com.codewithshadow.linkedin_clone.models.StoryModel;
 import com.codewithshadow.linkedin_clone.utils.UniversalImageLoderClass;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

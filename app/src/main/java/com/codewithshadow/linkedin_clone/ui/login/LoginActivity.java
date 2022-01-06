@@ -12,10 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.codewithshadow.linkedin_clone.R;
-import com.codewithshadow.linkedin_clone.adapters.onboarding.AppDescriptionSliderAdapter;
+import com.codewithshadow.linkedin_clone.helper.ServiceListener;
+import com.codewithshadow.linkedin_clone.adapters.AppDescriptionSliderAdapter;
 import com.codewithshadow.linkedin_clone.base.BaseActivity;
 import com.codewithshadow.linkedin_clone.constants.Constants;
-import com.codewithshadow.linkedin_clone.models.user.UserModel;
+import com.codewithshadow.linkedin_clone.models.UserModel;
 import com.codewithshadow.linkedin_clone.ui.home.HomeActivity;
 import com.codewithshadow.linkedin_clone.ui.location.LocationActivity;
 import com.google.android.gms.auth.api.identity.BeginSignInRequest;
@@ -36,7 +37,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 
-public class LoginActivity extends BaseActivity {
+import java.io.File;
+
+public class LoginActivity extends BaseActivity implements ServiceListener {
     ViewPager viewPager;
     LinearLayout dotsLayout;
     AppDescriptionSliderAdapter appDescriptionSliderAdapter;
@@ -67,6 +70,7 @@ public class LoginActivity extends BaseActivity {
         viewPager.addOnPageChangeListener(changeListener);
         btnSignIn = findViewById(R.id.btn_signIn);
         btnSignIn.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, JoinNowActivity.class)));
+
 
         //Function
         OneTapLogin();
@@ -113,7 +117,7 @@ public class LoginActivity extends BaseActivity {
                         // Your server's client ID, not your Android client ID.
                         .setServerClientId(getString(R.string.default_web_client_id))
                         // Only show accounts previously used to sign in.
-                        .setFilterByAuthorizedAccounts(true)
+                        .setFilterByAuthorizedAccounts(false)
                         .build())
                 // Automatically sign in when exactly one credential is retrieved.
                 .build();
@@ -217,5 +221,25 @@ public class LoginActivity extends BaseActivity {
             startActivity(new Intent(LoginActivity.this, HomeActivity.class));
             finish();
         }
+    }
+
+    @Override
+    public void loggedIn() {
+
+    }
+
+    @Override
+    public void fileDownloaded(@NonNull File file) {
+
+    }
+
+    @Override
+    public void cancelled() {
+
+    }
+
+    @Override
+    public void handleError(@NonNull Exception exception) {
+
     }
 }
